@@ -71,7 +71,7 @@
     index([['selected-work','Selected work'],['education','Education'],['interests','Research interests'],['contact','Contact']],true);
   }
   function publicationList(items) {
-    return `<ol class="pub-list">${items.map(p => `<li>${safe(p.url) ? `<a href="${safe(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)} ↗</a>` : `<strong>${esc(p.title)}</strong>`}<br>${esc(p.authors)}<br><em>${esc(p.venue)}</em>${p.year ? `, ${esc(p.year)}` : ''}${p.status ? `<br><span class="publication-status">${esc(p.status)}</span>` : ''}</li>`).join('')}</ol>`;
+    return `<ol class="pub-list">${items.map(p => `<li>${safe(p.url) ? `<a href="${safe(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)} ↗</a>` : `<strong>${esc(p.title)}</strong>`}<br>${esc(p.authors).replace('Sanghyun Cho','<strong>Sanghyun Cho</strong>')}<br><em>${esc(p.venue).replace(/\(([^)]*)\)/g,'</em>($1)<em>')}</em>${p.year ? `, ${esc(p.year)}` : ''}${p.status ? `<br><span class="publication-status">${esc(p.status)}</span>` : ''}</li>`).join('')}</ol>`;
   }
   function renderPublications() {
     main.innerHTML = `<div class="eyebrow">Research output</div><h1>Publications</h1><p class="intro">Manuscripts and conference contributions.</p><section id="manuscripts"><h2 class="section-heading">Manuscripts</h2>${publicationList(d.publications.filter(p=>p.type==='manuscript'))}</section><section id="conferences"><h2 class="section-heading">Conference presentations</h2>${publicationList(d.publications.filter(p=>p.type==='conference'))}</section>`;
