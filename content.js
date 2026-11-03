@@ -7,6 +7,7 @@ window.PORTFOLIO = {
   "department": "Mechanical Engineering",
   "university": "Seoul National University",
   "lab": "Microfluids and Soft Matter Laboratory",
+  "labUrl": "https://fluids.snu.ac.kr",
   "advisor": "Prof. Ho-Young Kim",
   "location": "Seoul, South Korea",
   "email": "petercho7@snu.ac.kr",
