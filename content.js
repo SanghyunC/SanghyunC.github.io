@@ -226,7 +226,7 @@ window.PORTFOLIO = {
         },
         {
           "heading": "Wind-tunnel setup",
-          "body": "Designed, fabricated, and assembled a custom vertical wind tunnel and modular test fixtures using CAD and 3D printing.",
+          "body": "Designed, fabricated, and assembled a custom vertical wind tunnel and modular test fixtures using CAD and 3D printing. The test section measures 245 × 290 × 475 mm (about 34 L) and reaches a maximum wind speed of 15.1 m/s.",
           "media": "",
           "mediaAlt": "",
           "caption": ""
