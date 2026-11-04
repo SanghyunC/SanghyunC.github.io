@@ -237,7 +237,7 @@ window.PORTFOLIO = {
           "media": "assets/wind-tunnel-inlet.jpg",
           "mediaAlt": "Close-up of the wind tunnel inlet duct, shown with a 10 cm scale bar",
           "caption": "Inlet duct (scale bar: 10 cm)."
-        }
+        },
         {
           "heading": "High-speed imaging & shape tracking",
           "body": "Established repeatable tracking conditions through pilot testing, fluorescent coating, controlled illumination, and high-speed imaging. Developed MATLAB- and Python-based workflows for profile extraction, motion reconstruction, and visualization.",
