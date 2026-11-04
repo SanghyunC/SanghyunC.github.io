@@ -211,24 +211,46 @@ window.PORTFOLIO = {
       "mediaHint": "Research image or video to be added",
       "sections": [
         {
+          "heading": "What is tip flutter?",
+          "body": "Tip flutter is the self-sustained flapping of the free end of a slender, flexible structure in a flow, such as a flag or a ribbon hanging in an air stream. Rather than the whole body oscillating, the motion is concentrated in a finite active length near the free end, while the upper part stays nearly still. In a long hanging ribbon, this tip motion can look highly irregular even close to onset, which raises the question of how such broadband irregularity arises.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
+        },
+        {
           "heading": "Research focus",
-          "body": "Investigate flutter dynamics in a long hanging ribbon by combining wind-tunnel experiments, motion reconstruction, and physical modeling."
+          "body": "Investigate flutter dynamics in a long hanging ribbon by combining wind-tunnel experiments, motion reconstruction, and physical modeling.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Wind-tunnel setup",
-          "body": "Designed, fabricated, and assembled a custom vertical wind tunnel and modular test fixtures using CAD and 3D printing."
+          "body": "Designed, fabricated, and assembled a custom vertical wind tunnel and modular test fixtures using CAD and 3D printing.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "High-speed imaging & shape tracking",
-          "body": "Established repeatable tracking conditions through pilot testing, fluorescent coating, controlled illumination, and high-speed imaging. Developed MATLAB- and Python-based workflows for profile extraction, motion reconstruction, and visualization."
+          "body": "Established repeatable tracking conditions through pilot testing, fluorescent coating, controlled illumination, and high-speed imaging. Developed MATLAB- and Python-based workflows for profile extraction, motion reconstruction, and visualization.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Physical scaling & reduced-order model",
-          "body": "Derived physical scaling relations and developed a reduced-order aeroelastic model. Validated theoretical predictions against experimental data."
+          "body": "Derived physical scaling relations and developed a reduced-order aeroelastic model. Validated theoretical predictions against experimental data.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Research output",
-          "body": "Prepared publication-quality figures and a first-author manuscript, listed in the CV as under review at Physical Review Letters. Related conference contributions appear on the Publications page."
+          "body": "Prepared publication-quality figures and a first-author manuscript, listed in the CV as under review at Physical Review Letters. Related conference contributions appear on the Publications page.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         }
       ],
       "figures": [],
