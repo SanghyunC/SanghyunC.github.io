@@ -227,10 +227,17 @@ window.PORTFOLIO = {
         {
           "heading": "Wind-tunnel setup",
           "body": "Designed, fabricated, and assembled a custom vertical wind tunnel and modular test fixtures using CAD and 3D printing. The test section measures 245 × 290 × 475 mm (about 34 L) and reaches a maximum wind speed of 15.1 m/s.",
-          "media": "",
-          "mediaAlt": "",
-          "caption": ""
+          "media": "assets/wind-tunnel-overview.jpg",
+          "mediaAlt": "Custom vertical wind tunnel with acrylic test section, shown with a 10 cm scale bar",
+          "caption": "Custom vertical wind tunnel (scale bar: 10 cm)."
         },
+        {
+          "heading": "Inlet duct",
+          "body": "Close-up of the wind tunnel inlet duct.",
+          "media": "assets/wind-tunnel-inlet.jpg",
+          "mediaAlt": "Close-up of the wind tunnel inlet duct, shown with a 10 cm scale bar",
+          "caption": "Inlet duct (scale bar: 10 cm)."
+        }
         {
           "heading": "High-speed imaging & shape tracking",
           "body": "Established repeatable tracking conditions through pilot testing, fluorescent coating, controlled illumination, and high-speed imaging. Developed MATLAB- and Python-based workflows for profile extraction, motion reconstruction, and visualization.",
