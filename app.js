@@ -90,13 +90,37 @@
       : `<img src="${src}" alt="${alt}" loading="lazy">`;
     return `<figure class="section-media">${body}${v.caption ? `<figcaption>${esc(v.caption)}</figcaption>` : ''}</figure>`;
   }
+  function sectionBlock(v, i) {
+    return `<section class="detail-block" id="detail-${i}"><h2>${esc(v.heading)}</h2><p>${esc(v.body)}</p>${sectionMedia(v)}</section>`;
+  }
   function renderProject(id) {
     const p = d.projects.find(x => x.id === id);
     if (!p) { main.innerHTML = '<h1>Project not found</h1><a href="#research">Back to research →</a>'; index([]); return; }
     const back = p.kind === 'research' ? 'research' : 'projects';
-    const sections = [...p.sections, {heading:'My contribution',body:p.contribution}];
-    main.innerHTML = `<article class="detail"><a class="back" href="#${back}">← Back to ${back}</a><div class="eyebrow">${esc(p.category)}</div><h1>${esc(p.title)}</h1><p class="intro">${esc(p.summary)}</p><p class="project-role">${esc(p.role)}${p.period ? ` · ${esc(p.period)}` : ''}</p>${p.badge ? `<span class="detail-badge">${esc(p.badge)}</span>` : ''}${media(p,true)}${sections.map((v,i) => `<section class="detail-block" id="detail-${i}"><h2>${esc(v.heading)}</h2><p>${esc(v.body)}</p>${sectionMedia(v)}</section>`).join('')}${p.figures.map(f => `<figure><img src="${safe(f.src)}" alt="${esc(f.alt)}" loading="lazy"><figcaption>${esc(f.caption)}</figcaption></figure>`).join('')}${p.links.length ? `<div class="page-actions">${p.links.map(l=>external(l.url,l.label)).join('')}</div>` : ''}${p.id==='hanging-ribbon' ? '<div class="page-actions"><a href="#publications">Related manuscript &amp; presentations →</a><a href="#project/flutter-ironing">Engineering application: Flutter ironing →</a></div>' : ''}</article>`;
-    index(sections.map((v,i)=>['detail-'+i,v.heading]),true);
+    const hasRoles = Array.isArray(p.roles) && p.roles.length;
+    const sections = hasRoles ? p.sections : [...p.sections, {heading:'My contribution',body:p.contribution}];
+    const stats = Array.isArray(p.stats) ? p.stats : [];
+    const catTags = String(p.category || '').split('·').map(t => t.trim()).filter(Boolean);
+    const first = p.links && p.links[0];
+    const primary = first && safe(first.url)
+      ? `<a class="btn-primary" href="${safe(first.url)}" target="_blank" rel="noopener noreferrer">${esc(first.label)} ↗</a>`
+      : (p.id === 'hanging-ribbon' ? '<a class="btn-primary" href="#publications">Publications →</a>' : '');
+    const status = [p.badge, p.role].filter(Boolean).map(esc).join(' · ');
+    const roleSection = hasRoles ? `<section class="detail-block" id="detail-role"><h2>My role</h2><div class="role-grid">${p.roles.map((r, i) => `<div class="role-card"><span class="role-num">${String(i + 1).padStart(2, '0')}</span><h3>${esc(r.title)}</h3><p>${esc(r.body)}</p></div>`).join('')}</div></section>` : '';
+    const statSection = stats.length ? `<section class="detail-block" id="detail-results"><h2>At a glance</h2><div class="stat-grid">${stats.map(s => `<div class="stat-card"><strong>${esc(s.value)}</strong><span>${esc(s.label)}</span></div>`).join('')}</div></section>` : '';
+    const head = sections.slice(0, 1).map((v, i) => sectionBlock(v, i)).join('');
+    const rest = sections.slice(1).map((v, i) => sectionBlock(v, i + 1)).join('');
+    main.innerHTML = `<article class="detail"><a class="back" href="#${back}">← Back to ${back}</a><header class="detail-head">${catTags.length ? `<div class="detail-tags">${catTags.map(esc).join(' · ')}</div>` : ''}<h1>${esc(p.title)}</h1><p class="intro">${esc(p.summary)}</p>${status ? `<p class="detail-status">${status}</p>` : ''}${p.period ? `<p class="detail-period"><b>Project period:</b> ${esc(p.period)}</p>` : ''}<div class="detail-buttons">${primary}${hasRoles ? '<a class="btn-link" data-scroll="detail-role" href="#detail-role">My contributions ↓</a>' : ''}<a class="btn-link" data-scroll="detail-1" href="#detail-1">Details ↓</a></div></header>${media(p,true)}${head}${roleSection}${statSection}${rest}${p.figures.map(f => `<figure><img src="${safe(f.src)}" alt="${esc(f.alt)}" loading="lazy"><figcaption>${esc(f.caption)}</figcaption></figure>`).join('')}${p.links.length ? `<div class="page-actions">${p.links.map(l=>external(l.url,l.label)).join('')}</div>` : ''}${p.id==='hanging-ribbon' ? '<div class="page-actions"><a href="#publications">Related manuscript &amp; presentations →</a><a href="#project/flutter-ironing">Engineering application: Flutter ironing →</a></div>' : ''}</article>`;
+    main.querySelectorAll('.detail-buttons [data-scroll]').forEach(a => a.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById(a.dataset.scroll)?.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block:'start'});
+    }));
+    const idx = [];
+    if (sections[0]) idx.push(['detail-0', sections[0].heading]);
+    if (hasRoles) idx.push(['detail-role', 'My role']);
+    if (stats.length) idx.push(['detail-results', 'At a glance']);
+    sections.slice(1).forEach((v, i) => idx.push(['detail-' + (i + 1), v.heading]));
+    index(idx, true);
   }
   function decode(value) { try { return decodeURIComponent(value); } catch { return ''; } }
   function route() {

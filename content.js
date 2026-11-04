@@ -254,7 +254,31 @@ window.PORTFOLIO = {
         }
       ],
       "figures": [],
-      "links": []
+      "links": [],
+      "roles": [
+        {
+          "title": "Experimental setup",
+          "body": "Designed, fabricated, and assembled a custom vertical wind tunnel and modular test fixtures using CAD and 3D printing."
+        },
+        {
+          "title": "Imaging & analysis",
+          "body": "Established high-speed imaging and tracking conditions, and built MATLAB and Python workflows for profile extraction and motion reconstruction."
+        },
+        {
+          "title": "Modeling & writing",
+          "body": "Derived scaling relations, developed a reduced-order aeroelastic model, and prepared the first-author manuscript."
+        }
+      ],
+      "stats": [
+        {
+          "value": "PRL",
+          "label": "First-author manuscript · under review"
+        },
+        {
+          "value": "3",
+          "label": "Conference presentations · 2 oral"
+        }
+      ]
     },
     {
       "id": "collective-robotics",
@@ -274,27 +298,57 @@ window.PORTFOLIO = {
       "sections": [
         {
           "heading": "Research goal",
-          "body": "Investigate how simple module-level interactions can generate coordinated manipulation and mechanically connected structures."
+          "body": "Investigate how simple module-level interactions can generate coordinated manipulation and mechanically connected structures.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Snake-like robot design & local grasping",
-          "body": "Designing and fabricating parametric 3D-printed snake-like robots and implementing decentralized, local-rule-based object grasping."
+          "body": "Designing and fabricating parametric 3D-printed snake-like robots and implementing decentralized, local-rule-based object grasping.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Geometric interlocking & reconfiguration",
-          "body": "Developing geometric interlocking mechanisms to study physical aggregation, reconfiguration, and connected three-dimensional structures."
+          "body": "Developing geometric interlocking mechanisms to study physical aggregation, reconfiguration, and connected three-dimensional structures.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "MuJoCo simulation",
-          "body": "Building physics-based simulations of inter-module contact to evaluate how local interaction rules produce emergent behavior."
+          "body": "Building physics-based simulations of inter-module contact to evaluate how local interaction rules produce emergent behavior.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "RL & PINN framework",
-          "body": "Developing a PyTorch-based simulation framework combining reinforcement learning and physics-informed neural networks for collective manipulation tasks."
+          "body": "Developing a PyTorch-based simulation framework combining reinforcement learning and physics-informed neural networks for collective manipulation tasks.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         }
       ],
       "figures": [],
-      "links": []
+      "links": [],
+      "roles": [
+        {
+          "title": "Module design",
+          "body": "Designing and fabricating parametric 3D-printed snake-like robots with decentralized, local-rule-based grasping."
+        },
+        {
+          "title": "Interlocking mechanisms",
+          "body": "Developing geometric interlocking mechanisms for aggregation, reconfiguration, and connected 3D structures."
+        },
+        {
+          "title": "Simulation & learning",
+          "body": "Building MuJoCo contact simulations and a PyTorch framework combining reinforcement learning and PINNs."
+        }
+      ],
+      "stats": []
     },
     {
       "id": "flutter-ironing",
@@ -314,19 +368,48 @@ window.PORTFOLIO = {
       "sections": [
         {
           "heading": "Design objective",
-          "body": "Develop a functional ironing mechanism based on flutter and translate fundamental fluid–structure interaction research into a practical system."
+          "body": "Develop a functional ironing mechanism based on flutter and translate fundamental fluid–structure interaction research into a practical system.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "My contribution",
-          "body": "Managed team members and coordinated development. Designed and conducted experiments using high-speed imaging to characterize system performance."
+          "body": "Managed team members and coordinated development. Designed and conducted experiments using high-speed imaging to characterize system performance.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Outcome",
-          "body": "The team received the Bronze Prize at the 4th KSME–LG Electronics Future Home Tech Challenge."
+          "body": "The team received the Bronze Prize at the 4th KSME–LG Electronics Future Home Tech Challenge.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         }
       ],
       "figures": [],
-      "links": []
+      "links": [],
+      "roles": [
+        {
+          "title": "Team leadership",
+          "body": "Led the team and coordinated system development."
+        },
+        {
+          "title": "Experiments",
+          "body": "Designed and conducted high-speed imaging experiments to characterize system performance."
+        },
+        {
+          "title": "Presentation",
+          "body": "Delivered the final presentation; the team received the Bronze Prize."
+        }
+      ],
+      "stats": [
+        {
+          "value": "Bronze",
+          "label": "4th KSME–LG Future Home Tech Challenge · 2025"
+        }
+      ]
     },
     {
       "id": "tourniquet",
@@ -346,19 +429,43 @@ window.PORTFOLIO = {
       "sections": [
         {
           "heading": "Design objective",
-          "body": "Develop a tourniquet incorporating a snap-through mechanism for rapid application in emergency settings."
+          "body": "Develop a tourniquet incorporating a snap-through mechanism for rapid application in emergency settings.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Experiments",
-          "body": "Designed experimental setups, conducted experiments, and collected performance data."
+          "body": "Designed experimental setups, conducted experiments, and collected performance data.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Project context",
-          "body": "Introduction to Design of Medical Robots and Devices, Seoul National University."
+          "body": "Introduction to Design of Medical Robots and Devices, Seoul National University.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         }
       ],
       "figures": [],
-      "links": []
+      "links": [],
+      "roles": [
+        {
+          "title": "Mechanism",
+          "body": "Developed the snap-through mechanism for rapid application."
+        },
+        {
+          "title": "Experimental setups",
+          "body": "Designed the experimental setups and conducted the experiments."
+        },
+        {
+          "title": "Performance data",
+          "body": "Collected the performance data used to evaluate the design."
+        }
+      ],
+      "stats": []
     },
     {
       "id": "beauty-device",
@@ -378,19 +485,43 @@ window.PORTFOLIO = {
       "sections": [
         {
           "heading": "Project context",
-          "body": "Capstone Design Project, Seoul National University."
+          "body": "Capstone Design Project, Seoul National University.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Hardware & experiments",
-          "body": "Designed hardware using CAD and conducted repeated experiments to construct an operating regime map."
+          "body": "Designed hardware using CAD and conducted repeated experiments to construct an operating regime map.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "My contribution",
-          "body": "Led product planning and development of a functional prototype. Delivered the concept pitch and final presentation."
+          "body": "Led product planning and development of a functional prototype. Delivered the concept pitch and final presentation.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         }
       ],
       "figures": [],
-      "links": []
+      "links": [],
+      "roles": [
+        {
+          "title": "Planning & leadership",
+          "body": "Led product planning and prototype development as team leader."
+        },
+        {
+          "title": "Hardware design",
+          "body": "Designed the hardware using CAD."
+        },
+        {
+          "title": "Experiments & pitch",
+          "body": "Constructed an operating regime map from repeated experiments and delivered the concept pitch and final presentation."
+        }
+      ],
+      "stats": []
     },
     {
       "id": "strength-machine",
@@ -410,15 +541,36 @@ window.PORTFOLIO = {
       "sections": [
         {
           "heading": "Project context",
-          "body": "Technology and Entrepreneurship, Seoul National University."
+          "body": "Technology and Entrepreneurship, Seoul National University.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "My contribution",
-          "body": "Led project planning, prototype development, and application development. Proposed and refined the product concept and delivered the concept pitch and final presentation."
+          "body": "Led project planning, prototype development, and application development. Proposed and refined the product concept and delivered the concept pitch and final presentation.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         }
       ],
       "figures": [],
-      "links": []
+      "links": [],
+      "roles": [
+        {
+          "title": "Planning",
+          "body": "Led project planning and proposed and refined the product concept."
+        },
+        {
+          "title": "Prototype & app",
+          "body": "Led prototype development and application development."
+        },
+        {
+          "title": "Presentations",
+          "body": "Delivered the concept pitch and final presentation."
+        }
+      ],
+      "stats": []
     },
     {
       "id": "smart-planter",
@@ -438,19 +590,48 @@ window.PORTFOLIO = {
       "sections": [
         {
           "heading": "Product concept",
-          "body": "Develop a smart planter for nutrient, humidity, and temperature control."
+          "body": "Develop a smart planter for nutrient, humidity, and temperature control.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Design & implementation",
-          "body": "Designed hardware using CAD and developed an Arduino-based prototype with Python programming."
+          "body": "Designed hardware using CAD and developed an Arduino-based prototype with Python programming.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Leadership",
-          "body": "Founded Team ALOE, recruited six team members, and led product planning, prototype development, and application development."
+          "body": "Founded Team ALOE, recruited six team members, and led product planning, prototype development, and application development.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         }
       ],
       "figures": [],
-      "links": []
+      "links": [],
+      "roles": [
+        {
+          "title": "Founding & planning",
+          "body": "Founded Team ALOE, recruited six team members, and led product planning."
+        },
+        {
+          "title": "Hardware",
+          "body": "Designed the hardware using CAD."
+        },
+        {
+          "title": "Prototype & app",
+          "body": "Developed an Arduino-based prototype with Python and led application development."
+        }
+      ],
+      "stats": [
+        {
+          "value": "6",
+          "label": "Team members recruited as founder"
+        }
+      ]
     },
     {
       "id": "kzg-commitments",
@@ -470,15 +651,24 @@ window.PORTFOLIO = {
       "sections": [
         {
           "heading": "Technical focus",
-          "body": "Analyzed the mathematical foundations of KZG polynomial commitments and their role in Ethereum’s EIP-4844 (Proto-Danksharding)."
+          "body": "Analyzed the mathematical foundations of KZG polynomial commitments and their role in Ethereum’s EIP-4844 (Proto-Danksharding).",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "My contribution",
-          "body": "Contributed mathematical analysis and explanations to a technical article produced by a four-member team."
+          "body": "Contributed mathematical analysis and explanations to a technical article produced by a four-member team.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         },
         {
           "heading": "Project context",
-          "body": "Practical Applications of Blockchain 1, Seoul National University."
+          "body": "Practical Applications of Blockchain 1, Seoul National University.",
+          "media": "",
+          "mediaAlt": "",
+          "caption": ""
         }
       ],
       "figures": [],
@@ -487,7 +677,18 @@ window.PORTFOLIO = {
           "label": "Technical article",
           "url": "https://medium.com/@vladislav.lenskii/blob-transaction-sending-tutorial-kzg-explanation-3b6b84510916"
         }
-      ]
+      ],
+      "roles": [
+        {
+          "title": "Mathematical analysis",
+          "body": "Analyzed the foundations of KZG polynomial commitments and their role in EIP-4844."
+        },
+        {
+          "title": "Technical writing",
+          "body": "Contributed mathematical explanations to a technical article written by a four-member team."
+        }
+      ],
+      "stats": []
     }
   ]
 };
