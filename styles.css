@@ -95,3 +95,6 @@
 .lightbox.single .lb-nav{display:none}
 body.lb-lock{overflow:hidden}
 @media (max-width:700px){.lb-stage{max-width:calc(100vw - 24px)}.lb-prev{left:8px}.lb-next{right:8px}.lb-nav{width:38px;height:38px}.album-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.cv-viewer{margin-top:20px;border:1px solid var(--line,#ddd);border-radius:6px;overflow:hidden;background:#f4f4f4}
+.cv-viewer iframe{display:block;width:100%;height:85vh;min-height:560px;border:0}
