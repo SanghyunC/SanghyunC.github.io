@@ -10,7 +10,7 @@
   };
   const external = (url, label) => safe(url) ? `<a href="${safe(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>` : '';
   const labLink = () => safe(d.labUrl) ? `<a href="${safe(d.labUrl)}" target="_blank" rel="noopener noreferrer">${esc(d.lab)}</a>` : esc(d.lab);
-  const nav = [['about','About'],['research','Research'],['projects','Projects'],['publications','Publications'],['cv','CV'],['album','Album']];
+  const nav = [['about','About'],['research','Research'],['projects','Projects'],['publications','Publications'],['cv','CV'],['exercise','Exercise'],['album','Album']];
   const tags = items => `<div class="tags">${items.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>`;
   const draft = () => d.draft ? '<div class="draft-note"><span class="draft-dot"></span>Portfolio draft · Images and videos to be added.</div>' : '';
   const projectHref = p => `#project/${encodeURIComponent(p.id)}`;
@@ -151,6 +151,10 @@
       video: /\.(mp4|webm|ogv|mov)(\?.*)?$/i.test(a.media)
     }));
   }
+  function renderExercise() {
+    const list = (Array.isArray(d.exercise) ? d.exercise : []).filter(x => x && x.title);
+    main.innerHTML = `<div class="eyebrow">Beyond research</div><h1>Exercise</h1>${list.length ? `<div class="exercise-list">${list.map(x => `<div class="exercise-item"><h3>${esc(x.title)}</h3>${x.body ? `<p>${esc(x.body)}</p>` : ''}</div>`).join('')}</div>` : `<p class="pending">Coming soon.</p>`}`;
+  }
   function renderAlbum() {
     albumList = albumItems();
     const tiles = albumList.map((it, i) => `<button class="album-item" type="button" data-i="${i}" aria-label="${esc(it.alt)}">${it.video ? `<video muted playsinline preload="metadata" src="${safe(it.src)}#t=0.1"></video><span class="album-play" aria-hidden="true">▶</span>` : `<img src="${safe(it.src)}" alt="${esc(it.alt)}" loading="lazy">`}</button>`).join("");
@@ -211,12 +215,12 @@
     closeAlbum();
     const hash = location.hash.slice(1) || 'about';
     const [page, ...parts] = hash.split('/');
-    const key = ['research','projects','project','about','publications','cv','album'].includes(page) ? page : 'about';
+    const key = ['research','projects','project','about','publications','cv','exercise','album'].includes(page) ? page : 'about';
     const p = key==='project' ? d.projects.find(x=>x.id===decode(parts[0] || '')) : null;
     renderProfile(key === 'project' ? (p?.kind==='research' ? 'research' : 'projects') : key);
     if (key === 'project') renderProject(decode(parts[0] || ''));
-    else ({research:renderResearch,projects:renderProjects,about:renderAbout,publications:renderPublications,cv:renderCV,album:renderAlbum})[key]();
-    document.title = `${key === 'project' ? (p?.title || 'Project') : ({research:'Research',projects:'Projects',about:'About',publications:'Publications',cv:'CV',album:'Album'})[key]} | ${d.name}`;
+    else ({research:renderResearch,projects:renderProjects,about:renderAbout,publications:renderPublications,cv:renderCV,exercise:renderExercise,album:renderAlbum})[key]();
+    document.title = `${key === 'project' ? (p?.title || 'Project') : ({research:'Research',projects:'Projects',about:'About',publications:'Publications',cv:'CV',exercise:'Exercise',album:'Album'})[key]} | ${d.name}`;
     window.scrollTo({top:0,behavior:'instant'});
     document.getElementById('topnav').classList.remove('open');
     document.querySelector('.menu-toggle').setAttribute('aria-expanded','false');
