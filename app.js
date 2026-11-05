@@ -93,7 +93,7 @@
   }
   function sectionGroups(v) {
     if (!Array.isArray(v.groups) || !v.groups.length) return "";
-    return v.groups.map(g => `<h3 class="sec-group">${esc(g.label)}</h3><ul class="sec-pubs">${(g.items || []).map(it => `<li>${esc(it.cite)}${it.venue ? `<br><span class="pub-venue">${esc(it.venue)}</span>` : ""}</li>`).join("")}</ul>`).join("");
+    return v.groups.map(g => `<h3 class="sec-group">${esc(g.label)}</h3><ul class="sec-pubs">${(g.items || []).map(it => `<li><strong>${esc(it.cite)}</strong>${it.venue ? `<br><span class="pub-venue">${esc(it.venue).replace(/\b(PRL|ORAL)\b/g, "<strong>$1</strong>")}</span>` : ""}</li>`).join("")}</ul>`).join("");
   }
   function sectionLink(v) {
     if (!v.link || !v.link.href) return "";
