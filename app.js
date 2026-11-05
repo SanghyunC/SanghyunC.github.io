@@ -86,8 +86,8 @@
     const src = safe(v.media);
     if (!src) return '';
     const alt = esc(v.mediaAlt || v.heading);
-    const body = /\.(mp4|webm|ogv)(?:\?.*)?$/i.test(v.media)
-      ? `<video controls muted loop playsinline preload="metadata" ${v.poster ? `poster="${safe(v.poster)}"` : ''} aria-label="${alt}"><source src="${src}">Your browser does not support this video.</video>`
+    const body = /\.(mp4|webm|ogv|mov)(?:\?.*)?$/i.test(v.media)
+      ? `<video autoplay muted loop playsinline preload="auto" ${v.poster ? `poster="${safe(v.poster)}"` : ''} aria-label="${alt}"><source src="${src}">Your browser does not support this video.</video>`
       : `<img src="${src}" alt="${alt}" loading="lazy">`;
     return `<figure class="section-media">${body}${v.caption ? `<figcaption>${esc(v.caption)}</figcaption>` : ''}</figure>`;
   }
