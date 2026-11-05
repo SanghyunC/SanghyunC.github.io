@@ -2,6 +2,7 @@
   'use strict';
   const d = window.PORTFOLIO;
   const main = document.getElementById('main');
+  new MutationObserver(() => main.querySelectorAll("video[autoplay]").forEach(v => { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); })).observe(main, {childList: true, subtree: true});
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const safe = url => {
     if (!url || /^(?:javascript|data|vbscript):/i.test(url) || /^\/\//.test(url)) return '';
@@ -17,7 +18,7 @@
     const src = safe(p.media);
     let body;
     if (!src) body = `<div class="media-placeholder"><span class="symbol" aria-hidden="true">▷</span><b>${esc(p.mediaLabel)}</b><small>${esc(p.mediaHint)}</small></div>`;
-    else if (/\.(mp4|webm|ogv)(?:\?.*)?$/i.test(p.media)) body = `<video controls muted loop playsinline preload="metadata" ${p.poster ? `poster="${safe(p.poster)}"` : ''} aria-label="${esc(p.mediaAlt)}"><source src="${src}">Your browser does not support this video.</video>`;
+    else if (/\.(mp4|webm|ogv)(?:\?.*)?$/i.test(p.media)) body = `<video autoplay muted loop playsinline preload="auto" ${p.poster ? `poster="${safe(p.poster)}"` : ''} aria-label="${esc(p.mediaAlt)}"><source src="${src}">Your browser does not support this video.</video>`;
     else body = `<img src="${src}" alt="${esc(p.mediaAlt)}" loading="lazy">`;
     return `<div class="${detail ? 'hero-media' : 'project-media'}"><div class="media-box">${body}</div>${detail && p.mediaLink && p.mediaLink.url ? `<p class="media-caption"><a href="${safe(p.mediaLink.url)}" target="_blank" rel="noopener noreferrer">${esc(p.mediaLink.label || 'Link')} ↗</a></p>` : `<p class="media-caption">${src ? esc(p.mediaAlt) : 'Visual material to be added.'}</p>`}</div>`;
   }
@@ -27,7 +28,7 @@
   function renderProfile(page) {
     document.querySelectorAll('[data-name]').forEach(n => n.textContent = d.name);
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('profile').innerHTML = `${d.portrait ? `<img class="portrait" src="${safe(d.portrait)}" alt="${esc(d.name)}">` : `<div class="portrait" aria-label="${esc(d.name)} initials">${esc(d.initials)}</div>`}<h2>${esc(d.name)}</h2><p>${esc(d.role)}<br>${esc(d.university)}</p><p class="department">${esc(d.department)}</p><p class="lab">${labLink()}</p><p class="location">⌖ &nbsp;${esc(d.location)}</p><div class="contact">${d.email ? `<span class="contact-email">Email: ${esc(d.email)}</span><button class="copy-button" type="button" id="copy-email" aria-live="polite">Copy email</button>` : ''}${external(d.links.scholar,'Google Scholar')}${external(d.links.github,'GitHub')}${external(d.links.linkedin,'LinkedIn')}${!d.email && !Object.values(d.links).some(Boolean) ? '<span class="pending">Contact details to be added</span>' : ''}</div><nav class="side-nav" aria-label="Profile navigation">${nav.map(([id,label]) => `<a href="#${id}" ${page === id ? 'class="active" aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
+    document.getElementById('profile').innerHTML = `${d.portrait ? `<img class="portrait" src="${safe(d.portrait)}" alt="${esc(d.name)}">` : `<div class="portrait" aria-label="${esc(d.name)} initials">${esc(d.initials)}</div>`}<h2>${esc(d.name)}</h2><p>${esc(d.role)}<br>${esc(d.university)}</p><p class="department">${esc(d.department)}</p><p class="lab">${labLink()}</p><p class="location">⌖ &nbsp;${esc(d.location)}</p><div class="contact">${d.email ? `<div class="contact-email-row"><span class="contact-email">Email: ${esc(d.email)}</span><button class="copy-icon" type="button" id="copy-email" aria-label="Copy email" title="Copy email"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg></button></div>` : ''}${external(d.links.scholar,'Google Scholar')}${external(d.links.github,'GitHub')}${external(d.links.linkedin,'LinkedIn')}${!d.email && !Object.values(d.links).some(Boolean) ? '<span class="pending">Contact details to be added</span>' : ''}</div><nav class="side-nav" aria-label="Profile navigation">${nav.map(([id,label]) => `<a href="#${id}" ${page === id ? 'class="active" aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
     document.querySelectorAll('[data-page]').forEach(a => {
       const active = a.dataset.page === page;
       a.classList.toggle('active', active);
@@ -35,8 +36,8 @@
     });
     const copy = document.getElementById('copy-email');
     if (copy) copy.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(d.email); copy.textContent = 'Copied'; }
-      catch { copy.textContent = d.email; }
+      try { await navigator.clipboard.writeText(d.email); copy.classList.add('copied'); copy.setAttribute('title', 'Copied'); setTimeout(() => { copy.classList.remove('copied'); copy.setAttribute('title', 'Copy email'); }, 1500); }
+      catch { window.prompt('Copy email', d.email); }
     });
   }
   function projectCard(p, i) {
