@@ -35,3 +35,7 @@
 .stat-card span{display:block;font-size:12px;line-height:1.6;color:#69737d}
 .detail-block{margin-bottom:38px}
 @media(max-width:600px){.detail-head h1{font-size:30px}.detail-head .detail-tags{font-size:10px}.stat-card strong{font-size:30px}}
+
+
+/* Side-by-side section videos: crop to a common 2:3 frame so heights match */
+.section-gallery video{aspect-ratio:2/3;object-fit:cover;height:auto}
