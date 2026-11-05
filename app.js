@@ -84,7 +84,7 @@
   function sectionMedia(v) {
     if (Array.isArray(v.gallery) && v.gallery.length) return `<div class="section-gallery">${v.gallery.map(g => sectionMedia(Object.assign({heading: v.heading}, g))).join('')}</div>`;
     const src = safe(v.media);
-    if (!src) return '';
+    if (!src) return v.text ? `<figure class="section-media section-text"><p>${esc(v.text)}</p></figure>` : '';
     const alt = esc(v.mediaAlt || v.heading);
     const body = /\.(mp4|webm|ogv|mov)(?:\?.*)?$/i.test(v.media)
       ? `<video autoplay muted loop playsinline preload="auto" ${v.poster ? `poster="${safe(v.poster)}"` : ''} aria-label="${alt}"><source src="${src}">Your browser does not support this video.</video>`
