@@ -55,3 +55,7 @@
 
 /* Gallery with images stacked vertically at full width */
 .section-gallery.stack{grid-auto-flow:row}
+
+/* Project page hero: show the whole image/video at its own aspect ratio, no cropping */
+.detail .hero-media .media-box{aspect-ratio:auto}
+.detail .hero-media .media-box img,.detail .hero-media .media-box video{width:100%;height:auto;max-height:75vh;object-fit:contain}
