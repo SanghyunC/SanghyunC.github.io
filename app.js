@@ -10,7 +10,7 @@
   };
   const external = (url, label) => safe(url) ? `<a href="${safe(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>` : '';
   const labLink = () => safe(d.labUrl) ? `<a href="${safe(d.labUrl)}" target="_blank" rel="noopener noreferrer">${esc(d.lab)}</a>` : esc(d.lab);
-  const nav = [['about','About'],['research','Research'],['projects','Projects'],['publications','Publications'],['cv','CV']];
+  const nav = [['about','About'],['research','Research'],['projects','Projects'],['publications','Publications'],['cv','CV'],['album','Album']];
   const tags = items => `<div class="tags">${items.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>`;
   const draft = () => d.draft ? '<div class="draft-note"><span class="draft-dot"></span>Portfolio draft · Images and videos to be added.</div>' : '';
   const projectHref = p => `#project/${encodeURIComponent(p.id)}`;
@@ -140,15 +140,92 @@
     index(idx, true);
   }
   function decode(value) { try { return decodeURIComponent(value); } catch { return ''; } }
+  /* Album: every image/video on the site in one grid, with a full-screen viewer */
+  let albumList = [], lb = null, lbIndex = 0, lbLast = null;
+  function albumItems() {
+    const out = [], seen = new Set();
+    const add = (src, alt, caption, p) => {
+      if (!src || seen.has(src)) return;
+      seen.add(src);
+      out.push({ src, alt: alt || caption || p.title, caption: caption || "", project: p.title, video: /\.(mp4|webm|ogv|mov)(\?.*)?$/i.test(src) });
+    };
+    d.projects.forEach(p => {
+      add(p.media, p.mediaAlt, "", p);
+      (p.sections || []).forEach(s => {
+        add(s.media, s.mediaAlt, s.caption, p);
+        (s.gallery || []).forEach(g => add(g.media, g.mediaAlt, g.caption, p));
+      });
+      (p.contributionGallery || []).forEach(g => add(g.media, g.mediaAlt, g.caption, p));
+      (p.figures || []).forEach(f => add(f.media || f.src, f.mediaAlt || f.alt, f.caption, p));
+    });
+    return out;
+  }
+  function renderAlbum() {
+    albumList = albumItems();
+    const tiles = albumList.map((it, i) => `<button class="album-item" type="button" data-i="${i}" aria-label="${esc(it.alt)}">${it.video ? `<video muted playsinline preload="metadata" src="${safe(it.src)}#t=0.1"></video><span class="album-play" aria-hidden="true">▶</span>` : `<img src="${safe(it.src)}" alt="${esc(it.alt)}" loading="lazy">`}</button>`).join("");
+    main.innerHTML = `<div class="eyebrow">${albumList.length} items</div><h1>Album</h1><p class="intro">Photos and videos from research and projects.</p>${albumList.length ? `<div class="album-grid">${tiles}</div>` : `<p class="pending">No photos yet.</p>`}`;
+    main.querySelectorAll(".album-item").forEach(b => b.addEventListener("click", () => openAlbum(Number(b.dataset.i))));
+    index([]);
+  }
+  function openAlbum(i) {
+    lbIndex = i;
+    lbLast = document.activeElement;
+    if (!lb) {
+      lb = document.createElement("div");
+      lb.className = "lightbox";
+      lb.setAttribute("role", "dialog");
+      lb.setAttribute("aria-modal", "true");
+      lb.setAttribute("aria-label", "Album viewer");
+      lb.innerHTML = `<button class="lb-close" type="button" aria-label="Close">×</button><button class="lb-nav lb-prev" type="button" aria-label="Previous">‹</button><figure class="lb-stage"></figure><button class="lb-nav lb-next" type="button" aria-label="Next">›</button>`;
+      lb.addEventListener("click", e => { if (e.target === lb || e.target.classList.contains("lb-stage")) closeAlbum(); });
+      lb.querySelector(".lb-close").addEventListener("click", closeAlbum);
+      lb.querySelector(".lb-prev").addEventListener("click", () => stepAlbum(-1));
+      lb.querySelector(".lb-next").addEventListener("click", () => stepAlbum(1));
+      let x0 = null;
+      lb.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 50) stepAlbum(dx < 0 ? 1 : -1); });
+      document.body.appendChild(lb);
+    }
+    showAlbum();
+    lb.classList.add("open");
+    document.body.classList.add("lb-lock");
+    lb.querySelector(".lb-close").focus();
+  }
+  function showAlbum() {
+    const it = albumList[lbIndex];
+    if (!it) return;
+    const media = it.video ? `<video src="${safe(it.src)}" autoplay muted loop playsinline controls></video>` : `<img src="${safe(it.src)}" alt="${esc(it.alt)}">`;
+    const text = it.caption || it.alt;
+    lb.querySelector(".lb-stage").innerHTML = `${media}<figcaption><span class="lb-count">${lbIndex + 1} / ${albumList.length}</span>${esc(it.project)}${text ? ` — ${esc(text)}` : ""}</figcaption>`;
+    lb.classList.toggle("single", albumList.length < 2);
+  }
+  function stepAlbum(n) {
+    lbIndex = (lbIndex + n + albumList.length) % albumList.length;
+    showAlbum();
+  }
+  function closeAlbum() {
+    if (!lb || !lb.classList.contains("open")) return;
+    lb.classList.remove("open");
+    document.body.classList.remove("lb-lock");
+    lb.querySelector(".lb-stage").innerHTML = "";
+    if (lbLast && lbLast.focus) lbLast.focus({ preventScroll: true });
+  }
+  document.addEventListener("keydown", e => {
+    if (!lb || !lb.classList.contains("open")) return;
+    if (e.key === "Escape") closeAlbum();
+    else if (e.key === "ArrowLeft") stepAlbum(-1);
+    else if (e.key === "ArrowRight") stepAlbum(1);
+  });
   function route() {
+    closeAlbum();
     const hash = location.hash.slice(1) || 'about';
     const [page, ...parts] = hash.split('/');
-    const key = ['research','projects','project','about','publications','cv'].includes(page) ? page : 'about';
+    const key = ['research','projects','project','about','publications','cv','album'].includes(page) ? page : 'about';
     const p = key==='project' ? d.projects.find(x=>x.id===decode(parts[0] || '')) : null;
     renderProfile(key === 'project' ? (p?.kind==='research' ? 'research' : 'projects') : key);
     if (key === 'project') renderProject(decode(parts[0] || ''));
-    else ({research:renderResearch,projects:renderProjects,about:renderAbout,publications:renderPublications,cv:renderCV})[key]();
-    document.title = `${key === 'project' ? (p?.title || 'Project') : ({research:'Research',projects:'Projects',about:'About',publications:'Publications',cv:'CV'})[key]} | ${d.name}`;
+    else ({research:renderResearch,projects:renderProjects,about:renderAbout,publications:renderPublications,cv:renderCV,album:renderAlbum})[key]();
+    document.title = `${key === 'project' ? (p?.title || 'Project') : ({research:'Research',projects:'Projects',about:'About',publications:'Publications',cv:'CV',album:'Album'})[key]} | ${d.name}`;
     window.scrollTo({top:0,behavior:'instant'});
     document.getElementById('topnav').classList.remove('open');
     document.querySelector('.menu-toggle').setAttribute('aria-expanded','false');
