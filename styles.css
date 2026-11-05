@@ -52,3 +52,6 @@
 .sec-pubs .pub-venue{color:var(--muted)}
 .sec-link{margin:12px 0 0}
 .sec-link a{font-weight:600}
+
+/* Gallery with images stacked vertically at full width */
+.section-gallery.stack{grid-auto-flow:row}
