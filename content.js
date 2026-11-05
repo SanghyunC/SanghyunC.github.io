@@ -1,6 +1,11 @@
 /* All portfolio content is edited here. Paths are relative to index.html.
    Facts are based on the supplied CV. Empty media fields show placeholders. */
 window.PORTFOLIO = {
+  /* Album page. Put files in assets/ and list them here, in display order.
+     Photos and videos (.mp4/.webm/.mov) both work. Example:
+     { "media": "assets/photo-01.jpg", "mediaAlt": "Short description for screen readers", "caption": "Shown under the image", "title": "Optional heading" }
+  */
+  "album": [],
   "name": "Sanghyun Cho",
   "initials": "SC",
   "role": "M.S. student",
