@@ -267,8 +267,18 @@ window.PORTFOLIO = {
           "heading": "Physical scaling & reduced-order model",
           "body": "Derived physical scaling relations and developed a reduced-order aeroelastic model. Validated theoretical predictions against experimental data.",
           "media": "",
-          "mediaAlt": "",
-          "caption": ""
+          "gallery": [
+            {
+              "media": "assets/Flag_W40_h12_L200_U2.110.mp4",
+              "mediaAlt": "Experimental video of ribbon flutter",
+              "caption": "Experimental result"
+            },
+            {
+              "media": "assets/reduced_order_simulation.mp4",
+              "mediaAlt": "Simulation of ribbon flutter using the reduced-order model",
+              "caption": "Simulation result from the reduced-order model"
+            }
+          ]
         },
         {
           "heading": "Research output",
