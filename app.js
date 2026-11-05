@@ -82,7 +82,7 @@
     index([['cv-education','Education'],['cv-experience','Research experience'],['cv-skills','Methods & skills'],['cv-awards','Honors & awards'],['cv-leadership','Leadership & service'],['cv-certifications','Certifications'],['cv-military','Military service']],true);
   }
   function sectionMedia(v) {
-    if (Array.isArray(v.gallery) && v.gallery.length) return `<div class="section-gallery">${v.gallery.map(g => sectionMedia(Object.assign({heading: v.heading}, g))).join('')}</div>`;
+    if (Array.isArray(v.gallery) && v.gallery.length) return `<div class="section-gallery${v.stack ? " stack" : ""}">${v.gallery.map(g => sectionMedia(Object.assign({heading: v.heading}, g))).join('')}</div>`;
     const src = safe(v.media);
     if (!src) return v.text ? `<figure class="section-media section-text"><p>${esc(v.text)}</p></figure>` : '';
     const alt = esc(v.mediaAlt || v.heading);
@@ -107,7 +107,7 @@
     if (!p) { main.innerHTML = '<h1>Project not found</h1><a href="#research">Back to research →</a>'; index([]); return; }
     const back = p.kind === 'research' ? 'research' : 'projects';
     const hasRoles = Array.isArray(p.roles) && p.roles.length;
-    const sections = hasRoles ? p.sections : [...p.sections, {heading:'My contribution',body:p.contribution}];
+    const sections = hasRoles ? p.sections : [...p.sections, {heading:'My contribution',body:p.contribution,gallery:p.contributionGallery,stack:true}];
     const stats = Array.isArray(p.stats) ? p.stats : [];
     const catTags = String(p.category || '').split('·').map(t => t.trim()).filter(Boolean);
     const first = p.links && p.links[0];
