@@ -19,7 +19,7 @@
     if (!src) body = `<div class="media-placeholder"><span class="symbol" aria-hidden="true">▷</span><b>${esc(p.mediaLabel)}</b><small>${esc(p.mediaHint)}</small></div>`;
     else if (/\.(mp4|webm|ogv)(?:\?.*)?$/i.test(p.media)) body = `<video controls muted loop playsinline preload="metadata" ${p.poster ? `poster="${safe(p.poster)}"` : ''} aria-label="${esc(p.mediaAlt)}"><source src="${src}">Your browser does not support this video.</video>`;
     else body = `<img src="${src}" alt="${esc(p.mediaAlt)}" loading="lazy">`;
-    return `<div class="${detail ? 'hero-media' : 'project-media'}"><div class="media-box">${body}</div><p class="media-caption">${src ? esc(p.mediaAlt) : 'Visual material to be added.'}</p></div>`;
+    return `<div class="${detail ? 'hero-media' : 'project-media'}"><div class="media-box">${body}</div>${detail && p.mediaLink && p.mediaLink.url ? `<p class="media-caption"><a href="${safe(p.mediaLink.url)}" target="_blank" rel="noopener noreferrer">${esc(p.mediaLink.label || 'Link')} ↗</a></p>` : `<p class="media-caption">${src ? esc(p.mediaAlt) : 'Visual material to be added.'}</p>`}</div>`;
   }
   function actions() {
     return `<div class="page-actions"><a href="#cv">Experience &amp; CV <span aria-hidden="true">↗</span></a>${external(d.links.scholar, 'Google Scholar')}</div>`;
