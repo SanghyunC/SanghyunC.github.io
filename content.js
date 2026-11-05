@@ -160,7 +160,7 @@ window.PORTFOLIO = {
       "type": "manuscript",
       "title": "Pseudochaotic Tip Flutter of a Long Hanging Ribbon",
       "authors": "Sanghyun Cho, Jeongsu Lee, L. Mahadevan, and Ho-Young Kim",
-      "venue": "Physical Review Letters",
+      "venue": "Physical Review Fluids",
       "year": "2026",
       "status": "Under review",
       "url": ""
@@ -293,7 +293,7 @@ window.PORTFOLIO = {
                 {
                   "id": "M01",
                   "cite": "Sanghyun Cho, Jeongsu Lee, L. Mahadevan, and Ho-Young Kim. “Pseudochaotic Tip Flutter of a Long Hanging Ribbon.”",
-                  "venue": "Under review (Physical Review Letters (PRL)). 2026."
+                  "venue": "Under review (Physical Review Fluids (PRFluids)). 2026."
                 }
               ]
             },
@@ -345,7 +345,7 @@ window.PORTFOLIO = {
       ],
       "stats": [
         {
-          "value": "PRL",
+          "value": "PRFluids",
           "label": "First-author manuscript · under review"
         },
         {
