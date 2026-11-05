@@ -712,7 +712,7 @@ window.PORTFOLIO = {
       "period": "Spring 2024",
       "role": "Course Project",
       "badge": "",
-      "media": "",
+      "media": "assets/kzg-article-header.png",
       "poster": "",
       "mediaAlt": "KZG Commitments and Proto-Danksharding",
       "mediaLabel": "KZG Commitments and Proto-Danksharding",
@@ -729,8 +729,19 @@ window.PORTFOLIO = {
           "heading": "My contribution",
           "body": "Contributed mathematical analysis and explanations to a technical article produced by a four-member team.",
           "media": "",
-          "mediaAlt": "",
-          "caption": ""
+          "gallery": [
+            {
+              "media": "assets/kzg-proto-danksharding.webp",
+              "mediaAlt": "Diagram of KZG commitment use in Proto-Danksharding: a blob is turned into a KZG commitment, which is placed in the block header and checked by validators",
+              "caption": ""
+            },
+            {
+              "media": "assets/kzg-how-it-works.webp",
+              "mediaAlt": "Diagram of how a KZG commitment works between a prover and a verifier: commit, request, then proof and evaluation",
+              "caption": ""
+            }
+          ],
+          "stack": true
         },
         {
           "heading": "Project context",
