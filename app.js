@@ -79,7 +79,7 @@
     index([['manuscripts','Manuscripts'],['conferences','Conferences']],true);
   }
   function renderCV() {
-    main.innerHTML = `<div class="eyebrow">Experience &amp; education</div><h1>Curriculum Vitae</h1><div class="page-actions"><a href="${safe(d.cv)}" download>Download CV ↓</a></div><div class="cv-viewer"><iframe src="${safe(d.cv)}#view=FitH" title="Curriculum Vitae (PDF)"></iframe></div>`;
+    main.innerHTML = `<div class="eyebrow">Experience &amp; education</div><h1>Curriculum Vitae</h1><div class="page-actions"><a href="${safe(d.cv)}" download>Download CV ↓</a></div><div class="cv-viewer"><iframe src="${safe(d.cv)}#toolbar=0&navpanes=0&scrollbar=1&view=FitH" title="Curriculum Vitae (PDF)"></iframe></div>`;
   }
   function sectionMedia(v) {
     if (Array.isArray(v.gallery) && v.gallery.length) return `<div class="section-gallery${v.stack ? " stack" : ""}">${v.gallery.map(g => sectionMedia(Object.assign({heading: v.heading}, g))).join('')}</div>`;
