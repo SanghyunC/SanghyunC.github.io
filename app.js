@@ -82,6 +82,7 @@
     index([['cv-education','Education'],['cv-experience','Research experience'],['cv-skills','Methods & skills'],['cv-awards','Honors & awards'],['cv-leadership','Leadership & service'],['cv-certifications','Certifications'],['cv-military','Military service']],true);
   }
   function sectionMedia(v) {
+    if (Array.isArray(v.gallery) && v.gallery.length) return `<div class="section-gallery">${v.gallery.map(g => sectionMedia(Object.assign({heading: v.heading}, g))).join('')}</div>`;
     const src = safe(v.media);
     if (!src) return '';
     const alt = esc(v.mediaAlt || v.heading);
