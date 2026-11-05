@@ -257,7 +257,7 @@ window.PORTFOLIO = {
               "caption": "High-speed luminescence imaging."
             },
             {
-              "media": "assets/flutter_line.mp4",
+              "media": "assets/flutter_line.mov",
               "mediaAlt": "Ribbon shape extracted from the high-speed video",
               "caption": "Shape tracking result."
             }
