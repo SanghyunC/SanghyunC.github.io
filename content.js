@@ -281,10 +281,45 @@ window.PORTFOLIO = {
         },
         {
           "heading": "Research output",
-          "body": "Prepared publication-quality figures and a first-author manuscript, listed in the CV as under review at Physical Review Letters. Related conference contributions appear on the Publications page.",
-          "media": "",
-          "mediaAlt": "",
-          "caption": ""
+          "groups": [
+            {
+              "label": "Manuscripts",
+              "items": [
+                {
+                  "id": "M01",
+                  "cite": "Sanghyun Cho, Jeongsu Lee, L. Mahadevan, and Ho-Young Kim. “Pseudochaotic Tip Flutter of a Long Hanging Ribbon.”",
+                  "venue": "Under review (Physical Review Letters (PRL)). 2026."
+                }
+              ]
+            },
+            {
+              "label": "Conference",
+              "items": [
+                {
+                  "id": "P01",
+                  "cite": "Sanghyun Cho, Jeongsu Lee, and Ho-Young Kim. “Pseudochaotic Tip Flutter of a Hanging Ribbon.”",
+                  "venue": "The 79th Annual Meeting of the APS Division of Fluid Dynamics (APS DFD), Orlando, Florida, 2026. (ORAL)"
+                },
+                {
+                  "id": "P02",
+                  "cite": "Sanghyun Cho, Jeongsu Lee, and Ho-Young Kim. “Pseudochaotic Tip Flutter: Broadband Irregularity without Nonlinearity.”",
+                  "venue": "International Symposium on Interfacial and Multiphase Heat Transfer, Seoul, Korea, 2026."
+                },
+                {
+                  "id": "P03",
+                  "cite": "Sanghyun Cho, Jeongsu Lee, and Ho-Young Kim. “Pseudochaotic Tip Flutter of a Long Hanging Ribbon.”",
+                  "venue": "The 14th National Congress on Fluids Engineering, Pyeongchang, Korea, 2026. (ORAL)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Related works",
+          "link": {
+            "label": "Flutter-Based Ironing Technology",
+            "href": "#project/flutter-ironing"
+          }
         }
       ],
       "figures": [],
