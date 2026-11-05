@@ -240,7 +240,7 @@ window.PORTFOLIO = {
               "caption": "CAD model of the inlet duct."
             },
             {
-              "media": "assets/inlet-fabricated.jpg",
+              "media": "assets/inlet-fabricated-v2.jpg",
               "mediaAlt": "Fabricated inlet duct assembled from segmented panels, shown with a 10 cm scale bar",
               "caption": "Fabricated inlet duct (scale bar: 10 cm)."
             }
