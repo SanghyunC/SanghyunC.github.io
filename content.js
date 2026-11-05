@@ -713,6 +713,10 @@ window.PORTFOLIO = {
       "role": "Course Project",
       "badge": "",
       "media": "assets/kzg-article-header.png",
+      "mediaLink": {
+        "label": "Link",
+        "url": "https://medium.com/@vladislav.lenskii/blob-transaction-sending-tutorial-kzg-explanation-3b6b84510916"
+      },
       "poster": "",
       "mediaAlt": "KZG Commitments and Proto-Danksharding",
       "mediaLabel": "KZG Commitments and Proto-Danksharding",
@@ -752,12 +756,7 @@ window.PORTFOLIO = {
         }
       ],
       "figures": [],
-      "links": [
-        {
-          "label": "Technical article",
-          "url": "https://medium.com/@vladislav.lenskii/blob-transaction-sending-tutorial-kzg-explanation-3b6b84510916"
-        }
-      ],
+      "links": [],
       "roles": [
         {
           "title": "Mathematical analysis",
