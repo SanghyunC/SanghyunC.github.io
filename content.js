@@ -254,12 +254,12 @@ window.PORTFOLIO = {
             {
               "media": "assets/flutter_luminescence.MOV",
               "mediaAlt": "High-speed video of the luminescent ribbon during tip flutter",
-              "caption": "High-speed luminescence imaging."
+              "caption": "Luminescence tracking of ribbon flutter"
             },
             {
               "media": "assets/flutter_line.mov",
               "mediaAlt": "Ribbon shape extracted from the high-speed video",
-              "caption": "Shape tracking result."
+              "caption": "Ribbon tracking result"
             }
           ]
         },
