@@ -91,8 +91,16 @@
       : `<img src="${src}" alt="${alt}" loading="lazy">`;
     return `<figure class="section-media">${body}${v.caption ? `<figcaption>${esc(v.caption)}</figcaption>` : ''}</figure>`;
   }
+  function sectionGroups(v) {
+    if (!Array.isArray(v.groups) || !v.groups.length) return "";
+    return v.groups.map(g => `<h3 class="sec-group">${esc(g.label)}</h3><ul class="sec-pubs">${(g.items || []).map(it => `<li>${it.id ? `<span class="pub-id">[${esc(it.id)}]</span> ` : ""}${esc(it.cite)}${it.venue ? `<br><span class="pub-venue">${esc(it.venue)}</span>` : ""}</li>`).join("")}</ul>`).join("");
+  }
+  function sectionLink(v) {
+    if (!v.link || !v.link.href) return "";
+    return `<p class="sec-link"><a href="${safe(v.link.href)}">${esc(v.link.label || v.link.href)} <span aria-hidden="true">→</span></a></p>`;
+  }
   function sectionBlock(v, i) {
-    return `<section class="detail-block" id="detail-${i}"><h2>${esc(v.heading)}</h2><p>${esc(v.body)}</p>${sectionMedia(v)}</section>`;
+    return `<section class="detail-block" id="detail-${i}"><h2>${esc(v.heading)}</h2>${v.body ? `<p>${esc(v.body)}</p>` : ""}${sectionGroups(v)}${sectionMedia(v)}${sectionLink(v)}</section>`;
   }
   function renderProject(id) {
     const p = d.projects.find(x => x.id === id);
