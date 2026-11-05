@@ -40,7 +40,7 @@
     });
   }
   function projectCard(p, i) {
-    return `<article class="project" id="${esc(p.id)}">${media(p)}<div class="project-copy"><div class="number">${String(i+1).padStart(2,'0')}${p.badge ? `<span class="project-badge">${esc(p.badge)}</span>` : ''}</div><p class="category">${esc(p.category)}</p><h2><a href="${projectHref(p)}">${esc(p.title)}</a></h2><p class="summary">${esc(p.summary)}</p><p class="contribution"><strong>My work.</strong> ${p.contribution ? esc(p.contribution) : '<span class="pending">Add your specific contribution.</span>'}</p>${p.role ? `<p class="project-role">${esc(p.role)}</p>` : ''}${p.period ? `<p class="period">Project period: ${esc(p.period)}</p>` : ''}<a class="explore" href="${projectHref(p)}">Explore project <span aria-hidden="true">→</span></a></div></article>`;
+    return `<article class="project" id="${esc(p.id)}">${media(p)}<div class="project-copy"><div class="number">${String(i+1).padStart(2,'0')}${p.badge ? `<span class="project-badge">${esc(p.badge)}</span>` : ''}</div><p class="category">${esc(p.category)}</p><h2><a href="${projectHref(p)}">${esc(p.title)}</a></h2><p class="summary">${esc(p.summary)}</p>${p.kind === "research" ? `<p class="contribution"><strong>My work.</strong> ${p.contribution ? esc(p.contribution) : '<span class="pending">Add your specific contribution.</span>'}</p>${p.role ? `<p class="project-role">${esc(p.role)}</p>` : ''}${p.period ? `<p class="period">Project period: ${esc(p.period)}</p>` : ''}` : ""}<a class="explore" href="${projectHref(p)}">Explore project <span aria-hidden="true">→</span></a></div></article>`;
   }
   function renderCollection(kind) {
     const isResearch = kind === 'research';
