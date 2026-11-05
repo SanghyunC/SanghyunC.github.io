@@ -252,7 +252,7 @@ window.PORTFOLIO = {
           "media": "",
           "gallery": [
             {
-              "media": "assets/flutter_line.mov",
+              "media": "assets/flutter_luminescence.MOV",
               "mediaAlt": "High-speed video of the luminescent ribbon during tip flutter",
               "caption": "High-speed luminescence imaging."
             },
