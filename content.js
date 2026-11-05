@@ -204,9 +204,9 @@ window.PORTFOLIO = {
       "period": "Mar. 2025 – Present",
       "role": "Graduate Researcher",
       "badge": "",
-      "media": "",
+      "media": "assets/flutter_luminescence_4x3.mp4",
       "poster": "",
-      "mediaAlt": "Pseudochaotic Tip Flutter of a Long Hanging Ribbon",
+      "mediaAlt": "Luminescence tracking of ribbon flutter",
       "mediaLabel": "Pseudochaotic Tip Flutter of a Long Hanging Ribbon",
       "mediaHint": "Research image or video to be added",
       "sections": [
