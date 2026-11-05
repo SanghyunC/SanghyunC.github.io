@@ -39,3 +39,7 @@
 
 /* Side-by-side section videos: crop to a common 2:3 frame so heights match */
 .section-gallery video{aspect-ratio:2/3;object-fit:cover;height:auto}
+
+/* Text-only cell in a section gallery */
+.section-gallery .section-text{display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px dashed #cfd8dc;border-radius:3px;background:var(--soft);color:var(--muted);font-size:14px;line-height:1.7}
+.section-gallery .section-text p{margin:0}
