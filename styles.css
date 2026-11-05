@@ -62,3 +62,6 @@
 
 /* Project list thumbnails: show the whole image, no cropping */
 .project .media-box img,.project .media-box video{object-fit:contain}
+
+/* Sidebar email shown as plain text */
+.profile .contact .contact-email{color:#59616a;font-size:12px;word-break:break-all}
