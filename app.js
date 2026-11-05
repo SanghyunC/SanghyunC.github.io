@@ -143,22 +143,13 @@
   /* Album: every image/video on the site in one grid, with a full-screen viewer */
   let albumList = [], lb = null, lbIndex = 0, lbLast = null;
   function albumItems() {
-    const out = [], seen = new Set();
-    const add = (src, alt, caption, p) => {
-      if (!src || seen.has(src)) return;
-      seen.add(src);
-      out.push({ src, alt: alt || caption || p.title, caption: caption || "", project: p.title, video: /\.(mp4|webm|ogv|mov)(\?.*)?$/i.test(src) });
-    };
-    d.projects.forEach(p => {
-      add(p.media, p.mediaAlt, "", p);
-      (p.sections || []).forEach(s => {
-        add(s.media, s.mediaAlt, s.caption, p);
-        (s.gallery || []).forEach(g => add(g.media, g.mediaAlt, g.caption, p));
-      });
-      (p.contributionGallery || []).forEach(g => add(g.media, g.mediaAlt, g.caption, p));
-      (p.figures || []).forEach(f => add(f.media || f.src, f.mediaAlt || f.alt, f.caption, p));
-    });
-    return out;
+    return (Array.isArray(d.album) ? d.album : []).filter(a => a && a.media).map(a => ({
+      src: a.media,
+      alt: a.mediaAlt || a.caption || "Album item",
+      caption: a.caption || "",
+      project: a.title || "",
+      video: /\.(mp4|webm|ogv|mov)(\?.*)?$/i.test(a.media)
+    }));
   }
   function renderAlbum() {
     albumList = albumItems();
@@ -196,7 +187,7 @@
     if (!it) return;
     const media = it.video ? `<video src="${safe(it.src)}" autoplay muted loop playsinline controls></video>` : `<img src="${safe(it.src)}" alt="${esc(it.alt)}">`;
     const text = it.caption || it.alt;
-    lb.querySelector(".lb-stage").innerHTML = `${media}<figcaption><span class="lb-count">${lbIndex + 1} / ${albumList.length}</span>${esc(it.project)}${text ? ` — ${esc(text)}` : ""}</figcaption>`;
+    lb.querySelector(".lb-stage").innerHTML = `${media}<figcaption><span class="lb-count">${lbIndex + 1} / ${albumList.length}</span>${[it.project, text].filter(Boolean).map(esc).join(" — ")}</figcaption>`;
     lb.classList.toggle("single", albumList.length < 2);
   }
   function stepAlbum(n) {
