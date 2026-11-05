@@ -740,8 +740,7 @@ window.PORTFOLIO = {
               "mediaAlt": "Diagram of how a KZG commitment works between a prover and a verifier: commit, request, then proof and evaluation",
               "caption": ""
             }
-          ],
-          "stack": true
+          ]
         },
         {
           "heading": "Project context",
