@@ -250,8 +250,18 @@ window.PORTFOLIO = {
           "heading": "High-speed imaging & shape tracking",
           "body": "Established repeatable tracking conditions through pilot testing, fluorescent coating, controlled illumination, and high-speed imaging. Developed MATLAB- and Python-based workflows for profile extraction, motion reconstruction, and visualization.",
           "media": "",
-          "mediaAlt": "",
-          "caption": ""
+          "gallery": [
+            {
+              "media": "assets/flutter_luminescence.MOV",
+              "mediaAlt": "High-speed video of the luminescent ribbon during tip flutter",
+              "caption": "High-speed luminescence imaging."
+            },
+            {
+              "media": "assets/2.1_out.mp4",
+              "mediaAlt": "Ribbon shape extracted from the high-speed video",
+              "caption": "Shape tracking result."
+            }
+          ]
         },
         {
           "heading": "Physical scaling & reduced-order model",
