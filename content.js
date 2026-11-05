@@ -274,9 +274,8 @@ window.PORTFOLIO = {
               "caption": "Experimental result"
             },
             {
-              "media": "assets/reduced_order_simulation.mp4",
-              "mediaAlt": "Simulation of ribbon flutter using the reduced-order model",
-              "caption": "Simulation result from the reduced-order model"
+              "media": "",
+              "text": "Simulation result obtained using the reduced-order model"
             }
           ]
         },
