@@ -198,10 +198,6 @@
           "paragraphs": [
             "I designed experimental setups, conducted experiments, and collected performance data. The prototype design and combined results presented on this page are the work of the team."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Team members listed in the report: Kwanwoo, Minjun, Jaehun, Soeun, and Sanghyun."
         }
       ]
     },
@@ -404,24 +400,11 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Buckle-driven, ultra-fast and compliant tourniquet"
-        },
-        {
-          "type": "paragraph",
-          "text": "Kwanwoo, Minjun, Jaehun, Soeun, and Sanghyun · Team 4"
+          "text": "Kwanwoo, Minjun, Jaehun, Soeun, and Sanghyun"
         },
         {
           "type": "paragraph",
           "text": "Introduction to Design of Medical Robots and Devices, Seoul National University · Spring 2025. Course project report."
-        },
-        {
-          "type": "paragraph",
-          "text": "Additional source: Team 4 final presentation, 10 June 2025. Its demonstration videos, layered-design figures, pressure statistics, and participant-feedback counts are incorporated above."
-        },
-        {
-          "type": "download",
-          "label": "Read the original project report (DOCX)",
-          "src": "assets/tourniquet/MRD25_Team4_Tourniquet_final.docx"
         }
       ]
     }
