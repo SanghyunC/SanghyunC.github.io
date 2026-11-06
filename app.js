@@ -109,9 +109,32 @@
   function sectionBlock(v, i) {
     return `<section class="detail-block" id="detail-${i}"><h2>${esc(v.heading)}</h2>${v.body ? `<p>${esc(v.body)}</p>` : ""}${sectionGroups(v)}${sectionMedia(v)}${sectionLink(v)}</section>`;
   }
+  function storyFigure(f) {
+    return `<figure${f.width ? ` style="max-width:${esc(f.width)}"` : ''}><a class="figure-link" href="${safe(f.src)}" target="_blank" rel="noopener noreferrer" aria-label="Open figure: ${esc(f.alt)}"><img src="${safe(f.src)}" alt="${esc(f.alt)}" loading="lazy" decoding="async"></a><figcaption>${esc(f.caption)}</figcaption></figure>`;
+  }
+  function storyVideo(v, caption = true) {
+    const auto = v.autoplay && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return `<figure class="story-video"><video controls muted playsinline ${auto ? 'autoplay loop' : ''} preload="${auto ? 'metadata' : 'none'}" poster="${safe(v.poster)}" aria-label="${esc(v.label)}"><source src="${safe(v.src)}" type="video/mp4">Your browser cannot play this video. <a href="${safe(v.src)}">Open MP4</a></video>${caption ? `<figcaption>${esc(v.caption)}</figcaption>` : ''}</figure>`;
+  }
+  function storyBlock(b) {
+    if (b.type === 'video') return storyVideo(b);
+    if (b.type === 'video-gallery') return `<div class="story-video-comparison"><div class="story-video-gallery">${b.items.map(v=>`<div><h4>${esc(v.label)}</h4>${storyVideo(v)}</div>`).join('')}</div><p class="comparison-note">${esc(b.caption)}</p></div>`;
+    if (b.type === 'paragraph') return `<p>${esc(b.text)}</p>`;
+    if (b.type === 'subsection') return `<div class="story-subsection"><h3>${esc(b.heading)}</h3>${b.paragraphs.map(t=>`<p>${esc(t)}</p>`).join('')}</div>`;
+    if (b.type === 'figure') return storyFigure(b);
+    if (b.type === 'gallery') return `<figure><div class="story-gallery">${b.items.map(f=>`<a class="figure-link" href="${safe(f.src)}" target="_blank" rel="noopener noreferrer" aria-label="Open figure: ${esc(f.alt)}"><img src="${safe(f.src)}" alt="${esc(f.alt)}" loading="lazy" decoding="async"></a>`).join('')}</div><figcaption>${esc(b.caption)}</figcaption></figure>`;
+    if (b.type === 'table') return `<div class="story-table-wrap" role="region" aria-label="${esc(b.caption)}" tabindex="0"><table><caption>${esc(b.caption)}</caption><thead><tr>${b.headers.map(h=>`<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${b.rows.map(r=>`<tr>${r.map((c,i)=>i===0?`<th scope="row">${esc(c)}</th>`:`<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    if (b.type === 'download') return `<p class="report-download"><a href="${safe(b.src)}" download>${esc(b.label)} ↓</a></p>`;
+    return '';
+  }
+  function renderCaseStudy(p) {
+    main.innerHTML = `<article class="detail case-study"><a class="back" href="#projects">← Back to Projects</a><div class="eyebrow">${esc(p.category)}</div><h1>${esc(p.title)}</h1><p class="project-role">Project period: ${esc(p.period)}<br>Team 4 · ${esc(p.role)}</p><p class="intro">${esc(p.summary)}</p>${p.story.map(s=>`<section class="story-section" id="${esc(s.id)}"><h2>${esc(s.heading)}</h2>${s.blocks.map(storyBlock).join('')}</section>`).join('')}<a class="back end-back" href="#projects">← Back to Projects</a></article>`;
+    index(p.story.map(s=>[s.id,s.heading]),true);
+  }
   function renderProject(id) {
     const p = d.projects.find(x => x.id === id);
     if (!p) { main.innerHTML = '<h1>Project not found</h1><a href="#research">Back to research →</a>'; index([]); return; }
+    if (p.caseStudy) { renderCaseStudy(p); return; }
     const back = p.kind === 'research' ? 'research' : 'projects';
     const hasRoles = Array.isArray(p.roles) && p.roles.length;
     const sections = hasRoles ? p.sections : [...p.sections, {heading:'My contribution',body:p.contribution,gallery:p.contributionGallery,stack:true}];
