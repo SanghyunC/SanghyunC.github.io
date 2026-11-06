@@ -98,3 +98,6 @@ body.lb-lock{overflow:hidden}
 
 .cv-viewer{margin-top:20px;border:1px solid var(--line,#ddd);border-radius:6px;overflow:hidden;background:#f4f4f4}
 .cv-viewer iframe{display:block;width:100%;height:85vh;min-height:560px;border:0}
+.section-gallery.fit{display:flex;flex-direction:row;gap:16px;align-items:flex-start}
+.section-gallery.fit .section-media{min-width:0;margin:0}
+.section-gallery.fit .section-media img{width:100%;height:auto;object-fit:contain}
