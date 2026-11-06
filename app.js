@@ -82,14 +82,14 @@
     main.innerHTML = `<div class="eyebrow">Experience &amp; education</div><h1>Curriculum Vitae</h1><div class="page-actions"><a href="${safe(d.cv)}" download>Download CV ↓</a></div><div class="cv-viewer"><iframe src="${safe(d.cv)}#toolbar=0&navpanes=0&scrollbar=1&view=FitH" title="Curriculum Vitae (PDF)"></iframe></div>`;
   }
   function sectionMedia(v) {
-    if (Array.isArray(v.gallery) && v.gallery.length) return `<div class="section-gallery${v.stack ? " stack" : ""}">${v.gallery.map(g => sectionMedia(Object.assign({heading: v.heading}, g))).join('')}</div>`;
+    if (Array.isArray(v.gallery) && v.gallery.length) return `<div class="section-gallery${v.stack ? " stack" : ""}${v.fit ? " fit" : ""}">${v.gallery.map(g => sectionMedia(Object.assign({heading: v.heading}, g))).join('')}</div>`;
     const src = safe(v.media);
     if (!src) return v.text ? `<figure class="section-media section-text"><p>${esc(v.text)}</p></figure>` : '';
     const alt = esc(v.mediaAlt || v.heading);
     const body = /\.(mp4|webm|ogv|mov)(?:\?.*)?$/i.test(v.media)
       ? `<video autoplay muted loop playsinline preload="auto" ${v.poster ? `poster="${safe(v.poster)}"` : ''} aria-label="${alt}"><source src="${src}">Your browser does not support this video.</video>`
       : `<img src="${src}" alt="${alt}" loading="lazy">`;
-    return `<figure class="section-media">${body}${v.caption ? `<figcaption>${esc(v.caption)}</figcaption>` : ''}</figure>`;
+    return `<figure class="section-media"${v.ratio ? ` style="flex:${Number(v.ratio)} 1 0"` : ''}>${body}${v.caption ? `<figcaption>${esc(v.caption)}</figcaption>` : ''}</figure>`;
   }
   function citeHtml(c) {
     const s = String(c || "");
