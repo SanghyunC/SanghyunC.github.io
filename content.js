@@ -458,6 +458,18 @@ window.PORTFOLIO = {
           "heading": "Outcome",
           "body": "The team received the Bronze Prize at the 4th KSME–LG Electronics Future Home Tech Challenge.",
           "media": "",
+          "gallery": [
+            {
+              "media": "assets/ironing-award.jpg",
+              "mediaAlt": "Award ceremony at the 4th KSME–LG Future Home Tech Challenge",
+              "caption": ""
+            },
+            {
+              "media": "assets/ironing-poster.jpg",
+              "mediaAlt": "Poster presentation of the flutter-based ironing technology",
+              "caption": ""
+            }
+          ],
           "mediaAlt": "",
           "caption": ""
         }
