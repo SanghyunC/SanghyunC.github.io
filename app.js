@@ -128,7 +128,7 @@
     return '';
   }
   function renderCaseStudy(p) {
-    main.innerHTML = `<article class="detail case-study"><a class="back" href="#projects">← Back to Projects</a><div class="eyebrow">${esc(p.category)}</div><h1>${esc(p.title)}</h1><p class="project-role">Project period: ${esc(p.period)}<br>Team 4 · ${esc(p.role)}</p><p class="intro">${esc(p.summary)}</p>${p.story.map(s=>`<section class="story-section" id="${esc(s.id)}"><h2>${esc(s.heading)}</h2>${s.blocks.map(storyBlock).join('')}</section>`).join('')}<a class="back end-back" href="#projects">← Back to Projects</a></article>`;
+    main.innerHTML = `<article class="detail case-study"><a class="back" href="#projects">← Back to Projects</a><div class="eyebrow">${esc(p.category)}</div><h1>${esc(p.title)}</h1><p class="project-role">Project period: ${esc(p.period)}<br>${esc(p.role)}</p><p class="intro">${esc(p.summary)}</p>${p.story.map(s=>`<section class="story-section" id="${esc(s.id)}"><h2>${esc(s.heading)}</h2>${s.blocks.map(storyBlock).join('')}</section>`).join('')}<a class="back end-back" href="#projects">← Back to Projects</a></article>`;
     index(p.story.map(s=>[s.id,s.heading]),true);
   }
   function renderProject(id) {
