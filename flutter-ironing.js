@@ -329,20 +329,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": "fi-materials",
-      "heading": "Project Materials",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "Flutter Ironing Technology · Team Ironing Man · Seoul National University."
-        },
-        {
-          "type": "paragraph",
-          "text": "Advisor: Prof. Ho-Young Kim."
-        }
-      ]
     }
   ]
 };
