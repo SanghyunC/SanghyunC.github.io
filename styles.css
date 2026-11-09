@@ -101,3 +101,5 @@ body.lb-lock{overflow:hidden}
 .section-gallery.fit{display:flex;flex-direction:row;gap:16px;align-items:flex-start}
 .section-gallery.fit .section-media{min-width:0;margin:0}
 .section-gallery.fit .section-media img{width:100%;height:auto;object-fit:contain}
+
+.project#flutter-ironing .media-box{aspect-ratio:532/498;background:transparent;border-color:transparent}
