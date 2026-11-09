@@ -119,15 +119,15 @@
               "src": "regular-flutter.mp4",
               "poster": "regular-flutter.jpg",
               "label": "Regular flutter",
-              "caption": "Regular-mode clip from proposal slide 8.",
+              "caption": "",
               "autoplay": false
             },
             {
               "type": "video",
               "src": "irregular-flutter.mp4",
               "poster": "irregular-flutter.jpg",
-              "label": "Irregular flutter",
-              "caption": "Irregular-mode clip from proposal slide 8.",
+              "label": "Chaotic flutter",
+              "caption": "",
               "autoplay": false
             }
           ],
@@ -316,12 +316,6 @@
         {
           "type": "paragraph",
           "text": "Next steps include fabric-specific operating windows, repeated wrinkle-recovery measurements, durability testing, measured energy and noise evaluation, and airflow management for multiple garments. AI-based operating-condition optimization and integration into an enclosed garment-care appliance are proposed directions rather than demonstrated product capabilities."
-        },
-        {
-          "type": "figure",
-          "src": "integration-concept.png",
-          "alt": "Concept illustration of an additional fan driving airflow through a garment-care cabinet.",
-          "caption": "Proposed appliance integration from proposal slide 20. This illustration is a concept, not a built and validated appliance."
         }
       ]
     },
@@ -332,10 +326,6 @@
         {
           "type": "paragraph",
           "text": "Flutter Ironing Technology · Team Ironing Man · Seoul National University."
-        },
-        {
-          "type": "paragraph",
-          "text": "Project materials: the competition presentation proposal and presentation poster for Flutter Ironing Technology. Figures and demonstration videos are reproduced from those materials."
         },
         {
           "type": "paragraph",
@@ -358,7 +348,7 @@
   }
   function video(item) {
     const auto = item.autoplay && !reduceMotion();
-    return `<figure class="fi-video"><video controls muted playsinline ${auto ? 'autoplay loop' : ''} preload="${auto ? 'metadata' : 'none'}" poster="${asset(item.poster)}" aria-label="${esc(item.label)}"><source src="${asset(item.src)}" type="video/mp4">Your browser cannot play this video. <a href="${asset(item.src)}">Open MP4</a></video><figcaption>${esc(item.caption)}</figcaption></figure>`;
+    return `<figure class="fi-video"><video controls muted playsinline ${auto ? 'autoplay loop' : ''} preload="${auto ? 'metadata' : 'none'}" poster="${asset(item.poster)}" aria-label="${esc(item.label)}"><source src="${asset(item.src)}" type="video/mp4">Your browser cannot play this video. <a href="${asset(item.src)}">Open MP4</a></video>${item.caption ? `<figcaption>${esc(item.caption)}</figcaption>` : ''}</figure>`;
   }
   function block(b) {
     if (b.type === 'paragraph') return `<p>${esc(b.text)}</p>`;
