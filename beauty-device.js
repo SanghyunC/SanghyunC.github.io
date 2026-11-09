@@ -278,24 +278,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": "bd-materials",
-      "heading": "Project Materials",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "Porcelain · Team Quicksilver · Interdisciplinary Capstone Design, Seoul National University · Spring 2026."
-        },
-        {
-          "type": "paragraph",
-          "text": "Sources: four capstone presentations documenting successive design stages, the suction-measurement video, and my CV. The final presentation provides the latest project status."
-        },
-        {
-          "type": "paragraph",
-          "text": "The successive presentations document the transition from a product concept to a working mock-up, response characterization, and a modular interface design."
-        }
-      ]
     }
   ]
 };
