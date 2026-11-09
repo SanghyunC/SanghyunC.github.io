@@ -245,57 +245,6 @@
       ]
     },
     {
-      "id": "bd-status",
-      "heading": "Results and Development Status",
-      "blocks": [
-        {
-          "type": "table",
-          "caption": "Documented outputs and the scope of the evidence.",
-          "headers": [
-            "Output",
-            "What the materials show",
-            "What remains to be established"
-          ],
-          "rows": [
-            [
-              "Prototype",
-              "Working mock-up documented in the final presentation",
-              "Integrated sensing and actuation performance under a defined test protocol"
-            ],
-            [
-              "Suction response",
-              "Measurement clip, response traces, and fitted curves",
-              "Calibration and accuracy against an independent reference"
-            ],
-            [
-              "Mapping and recommendation",
-              "Reported 900-sample representation and five-stage model interface",
-              "Dataset provenance, subject-level splits, and generalization"
-            ],
-            [
-              "Tip design",
-              "Three-size CAD family and magnetic/pogo-pin interface concept",
-              "Recognition, sealing, durability, and reproducibility tests"
-            ],
-            [
-              "Clinical evaluation",
-              "Listed as a planned next phase",
-              "Evidence for fat reduction, skin improvement, and safe treatment operation"
-            ],
-            [
-              "Intellectual property",
-              "Patent-specification draft described as prepared",
-              "Filing and subsequent examination were not demonstrated"
-            ]
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "The main engineering outcome is a prototype-based path from user requirements and modular hardware to response characterization and a recommendation concept. The materials do not demonstrate clinical fat reduction, collagen remodeling, or a validated automated treatment system."
-        }
-      ]
-    },
-    {
       "id": "bd-next",
       "heading": "Limitations and Next Steps",
       "blocks": [
