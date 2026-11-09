@@ -29,7 +29,7 @@
           "src": "airflow-demonstration.mp4",
           "poster": "airflow-demonstration.jpg",
           "label": "Airflow-driven fabric demonstration",
-          "caption": "Demonstration included in the proposal (slide 18), using a handheld airflow source. Playback follows the supplied clip. This is a prototype demonstration rather than an integrated appliance.",
+          "caption": "",
           "autoplay": true
         }
       ]
