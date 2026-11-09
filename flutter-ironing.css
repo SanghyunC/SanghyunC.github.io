@@ -3,3 +3,4 @@
 @media(max-width:700px){.flutter-ironing-study h1{font-size:32px}.flutter-ironing-study h2{font-size:25px}.flutter-ironing-study p{font-size:13px}.flutter-ironing-study .fi-intro{font-size:14px}.flutter-ironing-study .fi-video-grid{grid-template-columns:1fr;gap:24px}.flutter-ironing-study .fi-three{grid-template-columns:1fr}.flutter-ironing-study .fi-before-after .fi-figure-grid{gap:8px}.flutter-ironing-study .fi-image-link{padding:4px}.flutter-ironing-study h4{font-size:10px}.flutter-ironing-study section{margin-bottom:34px}}
 
 .flutter-ironing-study figure.fi-video{width:fit-content;max-width:100%}.flutter-ironing-study video{width:auto;max-width:100%;background:transparent}
+.flutter-ironing-study section>figure.fi-video{margin-left:auto;margin-right:auto}
