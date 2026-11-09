@@ -266,29 +266,19 @@
       ]
     },
     {
-      "id": "kzg-output",
-      "heading": "Project Outputs",
+      "id": "kzg-info",
+      "heading": "Project Information",
       "blocks": [
         {
-          "type": "paragraph",
-          "text": "The primary output is a public technical article that links an implementation repository and a testnet example. The work demonstrates collaborative analysis of an existing protocol and communication of the mathematics behind it."
-        },
-        {
-          "type": "links",
+          "type": "info",
           "items": [
-            {
-              "url": "https://medium.com/@vladislav.lenskii/blob-transaction-sending-tutorial-kzg-explanation-3b6b84510916",
-              "label": "Blob Transaction Sending Tutorial + KZG explanation"
-            },
-            {
-              "url": "https://github.com/rrhlrmrr/BlobTransactionTutorial/tree/main",
-              "label": "BlobTransactionTutorial repository"
-            }
+            ["Duration", "Spring 2024"],
+            ["Type", "Collaborative course project (four-person team)"],
+            ["Institution", "Seoul National University"],
+            ["Course", "Practical Applications of Blockchain 1"],
+            ["Topics", "EIP-4844 blob transactions and KZG polynomial commitments"],
+            ["Tools", "TypeScript, viem, and a KZG implementation"]
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Group credited in the article: Vladislav Lenskii, Sanghyun Cho (조상현), 전경민, and 조창민. The article is published under Vladislav Lenskii’s byline."
         }
       ]
     },
@@ -342,6 +332,7 @@
   }
   function block(b) {
     if (b.type === 'equation') return `<div class="kz-equation"><span>${esc(b.label)}</span><pre>${esc(b.text)}</pre>${b.note ? `<p>${esc(b.note)}</p>` : ''}</div>`;
+    if (b.type === 'info') return `<ul class="kz-reference-links">${b.items.map(i=>`<li><strong>${esc(i[0])}:</strong> ${esc(i[1])}</li>`).join('')}</ul>`;
     if (b.type === 'links') return `<ul class="kz-reference-links">${b.items.map(i=>`<li><a href="${esc(i.url)}" target="_blank" rel="noopener noreferrer">${esc(i.label)} ↗</a></li>`).join('')}</ul>`;
     if (b.type === 'paragraph') return `<p>${esc(b.text)}</p>`;
     if (b.type === 'subsection') return `<div class="kz-subsection"><h3>${esc(b.heading)}</h3><p>${esc(b.text)}</p></div>`;
