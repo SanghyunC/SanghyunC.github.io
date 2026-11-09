@@ -366,7 +366,7 @@
     const main = document.getElementById('main');
     if (!main) return;
     stylesheet();
-    main.innerHTML = `<article class="kzg-commitments-study"><a class="kz-back" href="#projects">← Back to Projects</a><p class="kz-eyebrow">Cryptography · Protocol analysis</p><h1>${esc(STUDY.title)}</h1><p class="kz-meta">${esc(STUDY.period)}<br>${esc(STUDY.role)}</p><p class="kz-award">${esc(STUDY.award)}</p><p class="kz-intro">${esc(STUDY.tagline)}</p>${STUDY.sections.map(s=>`<section id="${esc(s.id)}"><h2>${esc(s.heading)}</h2>${s.blocks.map(block).join('')}</section>`).join('')}<a class="kz-back" href="#projects">← Back to Projects</a></article>`;
+    main.innerHTML = `<article class="kzg-commitments-study"><a class="kz-back" href="#projects">← Back to Projects</a><p class="kz-eyebrow">Cryptography · Protocol analysis</p><h1>${esc(STUDY.title)}</h1><p class="kz-meta">${esc(STUDY.period)}<br>${esc(STUDY.role)}</p><p class="kz-award">${esc(STUDY.award)}</p><p class="kz-intro">${esc(STUDY.tagline)}</p><figure class="kz-hero"><img src="${esc(new URL('assets/kzg-article-header.png', scriptURL).href)}" alt="KZG Commitments and Proto-Danksharding" decoding="async"></figure>${STUDY.sections.map(s=>`<section id="${esc(s.id)}"><h2>${esc(s.heading)}</h2>${s.blocks.map(block).join('')}</section>`).join('')}<a class="kz-back" href="#projects">← Back to Projects</a></article>`;
     const toc = document.getElementById('page-index');
     if (toc) {
       toc.innerHTML = `<strong>On this page</strong>${STUDY.sections.map(s=>`<a href="${anchor(s.id)}" data-kz-scroll="${esc(s.id)}">${esc(s.heading)}</a>`).join('')}`;
