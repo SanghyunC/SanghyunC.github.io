@@ -79,12 +79,6 @@
           "text": "Fabric specimens were suspended in a vertical wind tunnel while airflow speed was varied. High-speed imaging captured their motion. Fluorescent marking and controlled illumination made the fabric profile visible for extraction and analysis."
         },
         {
-          "type": "figure",
-          "src": "wind-tunnel-setup.png",
-          "alt": "Schematic showing a vertical wind tunnel, fan, specimen, UV illumination, high-speed camera, and profile extraction.",
-          "caption": "Experimental arrangement from the poster: a fan drives flow through the test section, and high-speed imaging supports profile extraction."
-        },
-        {
           "type": "video-gallery",
           "items": [
             {
@@ -93,7 +87,7 @@
               "poster": "high-speed-profile.jpg",
               "label": "High-speed recording",
               "caption": "Original fluorescent-profile recording embedded in the poster.",
-              "autoplay": false
+              "autoplay": true
             },
             {
               "type": "video",
@@ -101,7 +95,7 @@
               "poster": "extracted-profile.jpg",
               "label": "Extracted profile",
               "caption": "Corresponding extracted contour embedded in the poster.",
-              "autoplay": false
+              "autoplay": true
             }
           ],
           "caption": "Recording and extracted contour. The poster labels this visualization as 0.1× playback. The supplied frame timing is retained."
@@ -120,7 +114,7 @@
               "poster": "regular-flutter.jpg",
               "label": "Regular flutter",
               "caption": "",
-              "autoplay": false
+              "autoplay": true
             },
             {
               "type": "video",
@@ -128,7 +122,7 @@
               "poster": "irregular-flutter.jpg",
               "label": "Chaotic flutter",
               "caption": "",
-              "autoplay": false
+              "autoplay": true
             }
           ],
           "caption": "High-speed visualizations retain the timing in the supplied presentation files. Clip duration is not the treatment duration reported in the fabric tests."
