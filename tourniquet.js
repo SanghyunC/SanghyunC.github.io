@@ -395,16 +395,19 @@
       ]
     },
     {
-      "id": "project-report",
-      "heading": "Project Report",
+      "id": "project-info",
+      "heading": "Project Information",
       "blocks": [
         {
-          "type": "paragraph",
-          "text": "Kwanwoo, Minjun, Jaehun, Soeun, and Sanghyun"
-        },
-        {
-          "type": "paragraph",
-          "text": "Introduction to Design of Medical Robots and Devices, Seoul National University · Spring 2025. Course project report."
+          "type": "info",
+          "items": [
+            ["Duration", "Spring Semester 2025"],
+            ["Type", "Course project (Kwanwoo, Minjun, Jaehun, Soeun, and Sanghyun)"],
+            ["Institution", "Seoul National University"],
+            ["Course", "Introduction to Design of Medical Robots and Devices"],
+            ["Topics", "Snap-through buckling for a rapid-application limb-compression device"],
+            ["Evaluation", "Application time, compression pressure, simulated leakage, and usability tests"]
+          ]
         }
       ]
     }
