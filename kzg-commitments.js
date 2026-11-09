@@ -272,8 +272,8 @@
         {
           "type": "info",
           "items": [
-            ["Duration", "Spring 2024"],
-            ["Type", "Collaborative course project (four-person team)"],
+            ["Duration", "Spring Semester 2024"],
+            ["Type", "Collaborative course project (Vladislav Lenskii, Sanghyun Cho, 전경민, and 조창민)"],
             ["Institution", "Seoul National University"],
             ["Course", "Practical Applications of Blockchain 1"],
             ["Topics", "EIP-4844 blob transactions and KZG polynomial commitments"],
