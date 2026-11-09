@@ -263,6 +263,23 @@
       ]
     },
     {
+      "id": "bd-info",
+      "heading": "Project Information",
+      "blocks": [
+        {
+          "type": "info",
+          "items": [
+            ["Duration", "Spring 2026"],
+            ["Type", "Team capstone project (Team Quicksilver)"],
+            ["Institution", "Seoul National University"],
+            ["Course", "Interdisciplinary Capstone Design"],
+            ["Role", "Team Leader / Co-CEO"],
+            ["Topics", "Suction-response sensing, physics-informed mapping, and personalized RF/HVP output recommendation"]
+          ]
+        }
+      ]
+    },
+    {
       "id": "bd-materials",
       "heading": "Project Materials",
       "blocks": [
@@ -298,6 +315,7 @@
     return `<figure class="bd-video"><video controls muted playsinline ${auto ? 'autoplay loop' : ''} preload="${auto ? 'metadata' : 'none'}" poster="${asset(item.poster)}" aria-label="${esc(item.label)}"><source src="${asset(item.src)}" type="video/mp4">Your browser cannot play this video. <a href="${asset(item.src)}">Open MP4</a></video><figcaption>${esc(item.caption)}</figcaption></figure>`;
   }
   function block(b) {
+    if (b.type === 'info') return `<ul style="margin:14px 0 22px;padding-left:18px;color:#626e78">${b.items.map(i=>`<li><strong>${esc(i[0])}:</strong> ${esc(i[1])}</li>`).join('')}</ul>`;
     if (b.type === 'paragraph') return `<p>${esc(b.text)}</p>`;
     if (b.type === 'subsection') return `<div class="bd-subsection"><h3>${esc(b.heading)}</h3><p>${esc(b.text)}</p></div>`;
     if (b.type === 'figure') return `<figure>${image(b)}<figcaption>${esc(b.caption)}</figcaption></figure>`;
