@@ -10,7 +10,7 @@
   "contribution": "Contributed to device development, designed experimental setups, conducted experiments, and collected performance data.",
   "period": "Spring 2025",
   "role": "Course Project",
-  "badge": "Course project · Spring 2025",
+  "badge": "Course grade: A+",
   "media": "assets/tourniquet/video/prototype-application.mp4",
   "poster": "assets/tourniquet/video/prototype-application.jpg",
   "mediaAlt": "Prototype application demonstration with its original on-screen timer",
