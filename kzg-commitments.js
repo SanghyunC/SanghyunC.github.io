@@ -75,6 +75,12 @@
           ]
         },
         {
+          "type": "figure",
+          "src": "assets/kzg-proto-danksharding.webp",
+          "alt": "Diagram of KZG commitment use in Proto-Danksharding: a blob is turned into a KZG commitment, which is placed in the block header and checked by validators",
+          "caption": "Use of a KZG commitment in Proto-Danksharding: the blob is turned into a commitment, the commitment is placed in the block header, and validators check it."
+        },
+        {
           "type": "paragraph",
           "text": "The commitment and its versioned hash are distinct. EIP-4844 derives the reference as a version byte followed by the final 31 bytes of SHA-256(commitment)."
         },
@@ -102,6 +108,12 @@
         {
           "type": "paragraph",
           "text": "A polynomial commitment lets a prover commit to a polynomial and later prove a claimed evaluation p(z) = y. KZG gives constant-sized commitments and evaluation witnesses for polynomials within the supported degree bound."
+        },
+        {
+          "type": "figure",
+          "src": "assets/kzg-how-it-works.webp",
+          "alt": "Diagram of how a KZG commitment works between a prover and a verifier: commit, request, then proof and evaluation",
+          "caption": "How a KZG commitment works between a prover and a verifier: the prover commits, the verifier requests an evaluation, and the prover returns the evaluation with a proof."
         },
         {
           "type": "subsection",
@@ -316,7 +328,7 @@
   ]
 };
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const asset = name => esc(new URL('assets/kzg-commitments/' + name, scriptURL).href);
+  const asset = name => esc(new URL((/^assets\//.test(name) ? '' : 'assets/kzg-commitments/') + name, scriptURL).href);
   const reduceMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || false;
   const target = () => {
     const parts = window.location.hash.slice(1).split('/');
