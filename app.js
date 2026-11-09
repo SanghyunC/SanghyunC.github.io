@@ -119,6 +119,7 @@
   function storyBlock(b) {
     if (b.type === 'video') return storyVideo(b);
     if (b.type === 'video-gallery') return `<div class="story-video-comparison"><div class="story-video-gallery">${b.items.map(v=>`<div><h4>${esc(v.label)}</h4>${storyVideo(v)}</div>`).join('')}</div><p class="comparison-note">${esc(b.caption)}</p></div>`;
+    if (b.type === 'info') return `<ul style="margin:14px 0 22px;padding-left:18px;color:#626e78">${b.items.map(i=>`<li><strong>${esc(i[0])}:</strong> ${esc(i[1])}</li>`).join('')}</ul>`;
     if (b.type === 'paragraph') return `<p>${esc(b.text)}</p>`;
     if (b.type === 'subsection') return `<div class="story-subsection"><h3>${esc(b.heading)}</h3>${b.paragraphs.map(t=>`<p>${esc(t)}</p>`).join('')}</div>`;
     if (b.type === 'figure') return storyFigure(b);
