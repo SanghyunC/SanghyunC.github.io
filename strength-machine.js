@@ -334,7 +334,7 @@
     },
     {
       "id": "sm-materials",
-      "heading": "Project Materials",
+      "heading": "Project Report",
       "blocks": [
         {
           "type": "paragraph",
