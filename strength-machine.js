@@ -340,9 +340,10 @@
           "type": "info",
           "items": [
             ["Duration", "Spring 2024"],
-            ["Type", "Team course project (Team 4)"],
+            ["Type", "Team course project"],
             ["Institution", "Seoul National University"],
             ["Course", "Technology and Entrepreneurship"],
+            ["Grade", "A+"],
             ["Role", "Team Leader"],
             ["Topics", "Wearable motion sensing, workout planning, repetition and tempo tracking, and session feedback"]
           ]
