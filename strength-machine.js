@@ -199,6 +199,18 @@
         },
         {
           "type": "subsection",
+          "heading": "Tempo-Tracking Script Demonstration",
+          "text": "A demonstration script shows the underlying repetition and tempo logic running outside the app. It compares an incoming contraction-level trace with an ideal target of 1 second contraction and 3 seconds relaxation, counts repetitions as they complete, and reports a tempo score for each repetition."
+        },
+        {
+          "type": "video",
+          "src": "gympal-demo.mp4",
+          "poster": "gympal-demo-poster.jpg",
+          "label": "Tempo-tracking script demonstration",
+          "caption": "Screen recording of the demonstration script (live plot and console, 39 s). The input is a synthetic signal streamed through a virtual serial port, so the counts and scores illustrate the algorithm; they are not wearable-sensor measurements."
+        },
+        {
+          "type": "subsection",
           "heading": "Rest Management",
           "text": "The intended workflow recognizes the end of a set and starts a rest timer. The session interface also allows rest settings and exercise loads to be adjusted during the workout."
         },
