@@ -149,7 +149,7 @@
           "src": "gympal-demo.mp4",
           "poster": "gympal-demo-poster.jpg",
           "label": "Test run on the project module",
-          "caption": "Screen recording of a test run of the tempo-tracking script on the module built in this project (live plot and console, 39 s). The plot legend labels the input trajectory as synthetic, so the counts and tempo scores show the test output and are not a validated measurement accuracy."
+          "caption": "Screen recording of a test run of the tempo-tracking script on the module built in this project (live plot and console, 39 s). The counts and tempo scores are outputs of this test run, not a validated measurement accuracy."
         }
       ]
     },
