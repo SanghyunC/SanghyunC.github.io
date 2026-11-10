@@ -333,22 +333,19 @@
       ]
     },
     {
-      "id": "sm-materials",
-      "heading": "Project Report",
+      "id": "sm-info",
+      "heading": "Project Information",
       "blocks": [
         {
-          "type": "paragraph",
-          "text": "GYMPAL · Team 4 · Technology and Entrepreneurship · Seoul National University · Spring 2024."
-        },
-        {
-          "type": "paragraph",
-          "text": "Sources: Team 4 midterm presentation and the final GYMPAL pitch deck. The final deck supplies the product and application visuals, while the midterm documents the sensing rationale. Individual responsibilities follow my CV."
-        },
-        {
-          "type": "figure",
-          "src": "gympal-logo.png",
-          "alt": "GYMPAL logo showing a flexed arm, a sensor motif, and a smartphone.",
-          "caption": "GYMPAL project identity from the final pitch deck."
+          "type": "info",
+          "items": [
+            ["Duration", "Spring 2024"],
+            ["Type", "Team course project (Team 4)"],
+            ["Institution", "Seoul National University"],
+            ["Course", "Technology and Entrepreneurship"],
+            ["Role", "Team Leader"],
+            ["Topics", "Wearable motion sensing, workout planning, repetition and tempo tracking, and session feedback"]
+          ]
         }
       ]
     }
@@ -370,6 +367,7 @@
     return `<figure class="sm-video"><video controls muted playsinline ${auto ? 'autoplay loop' : ''} preload="${auto ? 'metadata' : 'none'}" poster="${asset(item.poster)}" aria-label="${esc(item.label)}"><source src="${asset(item.src)}" type="video/mp4">Your browser cannot play this video. <a href="${asset(item.src)}">Open MP4</a></video><figcaption>${esc(item.caption)}</figcaption></figure>`;
   }
   function block(b) {
+    if (b.type === 'info') return `<ul style="margin:14px 0 22px;padding-left:18px;color:#626e78">${b.items.map(i=>`<li><strong>${esc(i[0])}:</strong> ${esc(i[1])}</li>`).join('')}</ul>`;
     if (b.type === 'paragraph') return `<p>${esc(b.text)}</p>`;
     if (b.type === 'subsection') return `<div class="sm-subsection"><h3>${esc(b.heading)}</h3><p>${esc(b.text)}</p></div>`;
     if (b.type === 'figure') return `<figure>${image(b)}<figcaption>${esc(b.caption)}</figcaption></figure>`;
