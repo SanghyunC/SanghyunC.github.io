@@ -9,6 +9,23 @@
     return esc(url);
   };
   const external = (url, label) => safe(url) ? `<a href="${safe(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>` : '';
+  const ico = {
+    mail: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+    scholar: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg>',
+    linkedin: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-5M12 13c0-1.5 1-2 2.2-2S16 12 16 13.5V16"/></svg>',
+    cv: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg>',
+    external: '<svg class="contact-trail" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
+    chevron: '<svg class="contact-trail contact-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
+    copy: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>'
+  };
+  const contactBlock = () => {
+    const items = [];
+    if (d.email) items.push('<li class="contact-item"><button class="contact-toggle" type="button" id="email-toggle" aria-expanded="false" aria-controls="email-panel">' + ico.mail + '<span class="contact-label">Email</span>' + ico.chevron + '</button><div class="email-panel" id="email-panel" hidden><span class="email-address">' + esc(d.email) + '</span><button class="email-copy" type="button" id="copy-email" aria-label="Copy email">' + ico.copy + '<span>Copy email</span></button></div></li>');
+    const link = (url, label, icon) => safe(url) ? '<li class="contact-item"><a class="contact-link" href="' + safe(url) + '" target="_blank" rel="noopener noreferrer">' + icon + '<span class="contact-label">' + esc(label) + '</span>' + ico.external + '</a></li>' : '';
+    items.push(link(d.links.scholar, 'Google Scholar', ico.scholar), link(d.links.linkedin, 'LinkedIn', ico.linkedin));
+    items.push('<li class="contact-item"><a class="contact-link" href="#cv">' + ico.cv + '<span class="contact-label">CV</span></a></li>');
+    return '<ul class="contact-list">' + items.join('') + '</ul>';
+  };
   const labLink = () => safe(d.labUrl) ? `<a href="${safe(d.labUrl)}" target="_blank" rel="noopener noreferrer">${esc(d.lab)}</a>` : esc(d.lab);
   const nav = [['about','About'],['research','Research'],['projects','Projects'],['publications','Publications'],['exercise','Exercise'],['album','Album']];
   const tags = items => `<div class="tags">${items.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>`;
@@ -28,7 +45,7 @@
   function renderProfile(page) {
     document.querySelectorAll('[data-name]').forEach(n => n.textContent = d.name);
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('profile').innerHTML = `${d.portrait ? `<img class="portrait" src="${safe(d.portrait)}" alt="${esc(d.name)}">` : `<div class="portrait" aria-label="${esc(d.name)} initials">${esc(d.initials)}</div>`}<h2>${esc(d.name)}</h2><p>${esc(d.role)}<br>${esc(d.university)}</p><p class="department">${esc(d.department)}</p><p class="lab">${labLink()}</p><p class="location">⌖ &nbsp;${esc(d.location)}</p><div class="contact">${d.email ? `<div class="contact-email-row"><span class="contact-email">Email: ${esc(d.email)}</span><button class="copy-icon" type="button" id="copy-email" aria-label="Copy email" title="Copy email"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg></button></div>` : ''}${external(d.links.scholar,'Google Scholar')}${external(d.links.github,'GitHub')}${external(d.links.linkedin,'LinkedIn')}<a href="#cv">CV</a>${!d.email && !Object.values(d.links).some(Boolean) ? '<span class="pending">Contact details to be added</span>' : ''}</div><nav class="side-nav" aria-label="Profile navigation">${nav.map(([id,label]) => `<a href="#${id}" ${page === id ? 'class="active" aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
+    document.getElementById('profile').innerHTML = `${d.portrait ? `<img class="portrait" src="${safe(d.portrait)}" alt="${esc(d.name)}">` : `<div class="portrait" aria-label="${esc(d.name)} initials">${esc(d.initials)}</div>`}<h2>${esc(d.name)}</h2><p>${esc(d.role)}<br>${esc(d.university)}</p><p class="department">${esc(d.department)}</p><p class="lab">${labLink()}</p><p class="location">⌖ &nbsp;${esc(d.location)}</p><div class="contact">${contactBlock()}${!d.email && !Object.values(d.links).some(Boolean) ? '<span class="pending">Contact details to be added</span>' : ''}</div><nav class="side-nav" aria-label="Profile navigation">${nav.map(([id,label]) => `<a href="#${id}" ${page === id ? 'class="active" aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
     document.querySelectorAll('[data-page]').forEach(a => {
       const active = a.dataset.page === page;
       a.classList.toggle('active', active);
@@ -38,6 +55,13 @@
     if (copy) copy.addEventListener('click', async () => {
       try { await navigator.clipboard.writeText(d.email); copy.classList.add('copied'); copy.setAttribute('title', 'Copied'); setTimeout(() => { copy.classList.remove('copied'); copy.setAttribute('title', 'Copy email'); }, 1500); }
       catch { window.prompt('Copy email', d.email); }
+    });
+    const emailToggle = document.getElementById('email-toggle');
+    const emailPanel = document.getElementById('email-panel');
+    if (emailToggle && emailPanel) emailToggle.addEventListener('click', () => {
+      const open = emailToggle.getAttribute('aria-expanded') === 'true';
+      emailToggle.setAttribute('aria-expanded', String(!open));
+      emailPanel.hidden = open;
     });
   }
   function projectCard(p, i) {
