@@ -103,3 +103,22 @@ body.lb-lock{overflow:hidden}
 .section-gallery.fit .section-media img{width:100%;height:auto;object-fit:contain}
 
 .project#flutter-ironing .media-box{aspect-ratio:532/498;background:transparent;border-color:transparent}
+
+/* Profile contact list */
+.profile .contact{gap:0}
+.profile .contact-list{list-style:none;margin:0;padding:0;width:100%}
+.profile .contact-item{margin:0}
+.profile .contact-toggle,.profile .contact .contact-link{display:flex;align-items:center;gap:12px;width:100%;box-sizing:border-box;padding:9px 0;background:none;border:0;color:var(--ink);font:inherit;font-size:14px;font-weight:600;line-height:1.4;text-align:left;text-decoration:none;cursor:pointer}
+.profile .contact-toggle:hover,.profile .contact .contact-link:hover{color:var(--accent);text-decoration:none}
+.profile .contact-toggle:focus-visible,.profile .contact .contact-link:focus-visible,.profile .email-copy:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.profile .contact-toggle>svg:first-child,.profile .contact .contact-link>svg:first-child{flex:none;color:#59616a}
+.profile .contact-label{flex:1;min-width:0}
+.profile .contact-trail{flex:none;margin-left:auto;color:#8a929a;transition:transform .15s ease}
+.profile .contact-toggle[aria-expanded="true"] .contact-chevron{transform:rotate(180deg)}
+.profile .email-panel{padding:2px 0 10px}
+.profile .email-panel[hidden]{display:none}
+.profile .email-address{display:block;font-size:13px;line-height:1.5;color:var(--ink);overflow-wrap:anywhere;margin:0 0 9px}
+.profile .email-copy{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;background:var(--soft);border:1px solid var(--line);border-radius:6px;color:var(--ink);font:inherit;font-size:13px;cursor:pointer}
+.profile .email-copy:hover{border-color:#cfd6da}
+.profile .email-copy.copied span{display:none}
+.profile .email-copy.copied::after{content:"Copied"}
