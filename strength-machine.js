@@ -138,6 +138,18 @@
         {
           "type": "paragraph",
           "text": "The supplied slides do not specify a complete firmware, communications protocol, or calibration procedure. The application screens below show the intended user-facing behavior at the prototype stage."
+        },
+        {
+          "type": "subsection",
+          "heading": "Test Run on the Project Module",
+          "text": "The tempo-tracking script was also run as a test on the module built in this project. The console shows the ESP32 stream and Arduino UNO input. The script compares the incoming contraction-level trace with an ideal target of 1 second contraction and 3 seconds relaxation, counts repetitions as they complete, and reports a tempo score for each repetition."
+        },
+        {
+          "type": "video",
+          "src": "gympal-demo.mp4",
+          "poster": "gympal-demo-poster.jpg",
+          "label": "Test run on the project module",
+          "caption": "Screen recording of a test run of the tempo-tracking script on the module built in this project (live plot and console, 39 s). The plot legend labels the input trajectory as synthetic, so the counts and tempo scores show the test output and are not a validated measurement accuracy."
         }
       ]
     },
@@ -196,18 +208,6 @@
             }
           ],
           "caption": "Tracking-interface screens from final-pitch slide 12, showing successive repetition counts and movement-phase markers."
-        },
-        {
-          "type": "subsection",
-          "heading": "Tempo-Tracking Script Demonstration",
-          "text": "A demonstration script shows the underlying repetition and tempo logic running outside the app. It compares an incoming contraction-level trace with an ideal target of 1 second contraction and 3 seconds relaxation, counts repetitions as they complete, and reports a tempo score for each repetition."
-        },
-        {
-          "type": "video",
-          "src": "gympal-demo.mp4",
-          "poster": "gympal-demo-poster.jpg",
-          "label": "Tempo-tracking script demonstration",
-          "caption": "Screen recording of the demonstration script (live plot and console, 39 s). The input is a synthetic signal streamed through a virtual serial port, so the counts and scores illustrate the algorithm; they are not wearable-sensor measurements."
         },
         {
           "type": "subsection",
